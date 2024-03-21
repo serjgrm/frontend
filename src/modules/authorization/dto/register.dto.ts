@@ -1,19 +1,14 @@
-export enum TypeOfAccount {
-  VOLUNTEER = 'VOLUNTEER',
-  SUPPORTER = 'SUPPORTER',
-}
-
 export interface RegistrationRequest {
   email: string;
   password: string;
   repeatPassword: string;
-  typeOfAccount: TypeOfAccount;
+  fullName: string;
+  isVolunteer: boolean;
 }
 
 export interface RegistrationResponse {
+  id: number;
   email: string;
-  password: string;
-  repeatPassword: string;
-  typeOfAccount: TypeOfAccount;
+  fullName: string;
   token: string;
 }
