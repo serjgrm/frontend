@@ -1,0 +1,42 @@
+.input {
+  width: 100%;
+  height: 60px;
+  border-radius: 16px;
+  border: 1px solid #929497;
+  color: #929497;
+  transition: color 0.2s ease-out, border-color 0.2s ease-out;
+  font-family: Roboto, sans-serif;
+
+  &:focus {
+    outline: #203CAD 1px;
+    color: #252527;
+  }
+
+  &--success {
+    border-color: #39B557;
+    outline: #39B557 1px;
+    color: #252527;
+  }
+
+  &--warning {
+    border-color: #F1B00E;
+    outline: #F1B00E 1px;
+    color: #252527;
+  }
+
+  &--error {
+    border-color: #DD3522;
+    outline: #DD3522 1px;
+    color: #252527;
+    pointer-events: none;
+  }
+
+  &--filled {
+    color: #252527;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.9;
+  }
+}
