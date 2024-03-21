@@ -7,6 +7,7 @@ export interface RegistrationRequest {
   email: string;
   password: string;
   repeatPassword: string;
+  fullName: string;
   typeOfAccount: TypeOfAccount;
 }
 
@@ -14,6 +15,7 @@ export interface RegistrationResponse {
   email: string;
   password: string;
   repeatPassword: string;
+  fullName: string;
   typeOfAccount: TypeOfAccount;
   token: string;
 }
