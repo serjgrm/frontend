@@ -1,0 +1,30 @@
+.button {
+  width: 100%;
+  height: 60px;
+  border-radius: 16px;
+  color: #fff;
+  background-color: #1F48D6;
+
+  &:hover {
+    background-color: #285DE8;
+  }
+  &:disabled {
+    pointer-events: none;
+    background-color: #AEB0B2;
+  }
+
+  &--is-primary {
+    color: #1F48D6;
+    background-color: transparent;
+    border: 1px solid #1F48D6;
+
+    &:hover {
+      color: #203CAD;
+      border-color: #203CAD;
+    }
+    &:disabled {
+      color: #929497;
+      border-color: #929497;
+    }
+  }
+}
