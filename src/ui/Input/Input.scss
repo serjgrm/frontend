@@ -8,8 +8,12 @@
   font-family: Roboto, sans-serif;
 
   &:focus {
-    outline: #203CAD 1px;
+    outline: #203CAD 2px;
     color: #252527;
+  }
+
+  &:hover {
+    border-color: #203CAD;
   }
 
   &--success {
