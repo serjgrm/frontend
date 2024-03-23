@@ -1,0 +1,30 @@
+.radiobutton {
+  width: 32px;
+  height: 32px;
+  padding: 3px;
+  border: none;
+  background-color: transparent;
+
+  &__icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid #1F48D6;
+    transition: border-width 0.1s ease-in;
+
+    &--active {
+      border-width: 8px;
+    }
+  }
+
+
+  &:disabled {
+    .radiobutton__icon {
+      border: 2px solid #CFD0D2;
+
+      &--active {
+        border-width: 8px;
+      }
+    }
+  }
+}
