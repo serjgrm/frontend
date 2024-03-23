@@ -3,6 +3,7 @@ interface Flags {
   hasNumber: boolean;
   hasLetterUpperCase: boolean;
   hasSpecSymbol: boolean;
+  dontHasSpaces: boolean;
 }
 
 export const passwordValidate = (password: string): Flags => {
@@ -11,9 +12,18 @@ export const passwordValidate = (password: string): Flags => {
     hasNumber: false,
     hasLetterUpperCase: false,
     hasSpecSymbol: false,
+    dontHasSpaces: true,
   };
   
   const SPECIAL_SYMBOLS: string = '!@#$%^&*()_+-={}|\\/.,<>';
+  
+  for (const ch of password) {
+    if (ch === ' ') {
+      flags.dontHasSpaces = false;
+      
+      break;
+    }
+  }
   
   flags.minLength = password.length > 7;
   flags.hasNumber = password.match(/\d+/) !== null;
