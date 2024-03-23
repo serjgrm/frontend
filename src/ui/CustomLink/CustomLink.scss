@@ -1,11 +1,20 @@
 .custom-link {
-  color: #252527;
+  color: #4B4C4F;
   font-family: Roboto, sans-serif;
   font-weight: 500;
   text-decoration: none;
+  transition: color 0.2s ease-out;
+
+  &:after {
+    background-color: #4B4C4F;
+  }
 
   &:hover {
-    font-weight: 800;
+    color: #0e0e0e;
+
+    &:after {
+      background-color: #0e0e0e;
+    }
   }
 
   &--active {
@@ -23,7 +32,6 @@
 
   &--primary {
     color: #1F48D6;
-    font-weight: 800;
 
     &:after {
       background-color: #1F48D6;
@@ -41,6 +49,10 @@
   &--disabled {
     pointer-events: none;
     color: #929497;
+
+    &--active{
+
+    }
 
     &:after {
       background-color: #929497;
