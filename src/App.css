@@ -7,3 +7,13 @@
 p, span, h1, h2, h3, h4, h5, h6, label, input, a {
   font-family: Roboto, sans-serif;
 }
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 1 auto;
+}
