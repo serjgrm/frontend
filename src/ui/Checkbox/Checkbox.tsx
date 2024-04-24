@@ -13,6 +13,11 @@ export const Checkbox: FC<Props> = ({ active, callbackToggle, disabled }) => {
     'checkbox',
     {'checkbox--active': active}
   );
+
+  const classesForIcon = classNames(
+    'checkbox__icon',
+    {'checkbox__icon--active': active}
+  )
   
   return (
     <button
@@ -21,7 +26,7 @@ export const Checkbox: FC<Props> = ({ active, callbackToggle, disabled }) => {
       disabled={disabled}
     >
       <svg
-        className="checkbox__icon"
+        className={classesForIcon}
         width="30"
         height="30"
         viewBox="0 0 30 30"
@@ -31,7 +36,8 @@ export const Checkbox: FC<Props> = ({ active, callbackToggle, disabled }) => {
         <g clipPath="url(#clip0_407_146)">
           <path
             d="M12.6294 18.7594L23.5237 7.86401L25.2007 9.53987L12.6294 22.1111L5.08691 14.5686L6.76277 12.8928L12.6294 18.7594Z"
-            fill="white"/>
+            fill="#FFFFFF"
+          />
         </g>
         <defs>
           <clipPath id="clip0_407_146">

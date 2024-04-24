@@ -1,30 +1,47 @@
+@import "../ui-common-styles/typography";
+@import "../ui-common-styles/colors";
+
 .button {
   width: 100%;
-  height: 60px;
-  border-radius: 16px;
-  color: #fff;
-  background-color: #1F48D6;
+  height: 48px;
+  border-radius: 8px;
+  transition:
+          0.3s color linear,
+          0.3s border-color linear,
+          0.3s background-color linear;
+
+  @include TextButton;
+
+  // styles for secondary button
+  color: $color_azure-radiance-700;
+  background-color: $color_azure-radiance-50;
+  border: 1px solid $color_azure-radiance-700;
 
   &:hover {
-    background-color: #285DE8;
+    color: $color_azure-radiance-800;
+    border-color: $color_azure-radiance-800;
   }
   &:disabled {
-    pointer-events: none;
-    background-color: #AEB0B2;
+    color: $color_mountain-mist-400;
+    background-color: $color-mountain-mist-50;
+    border-color: $color_mountain-mist-400;
   }
 
+  // styles for primary button
   &--is-primary {
-    color: #1F48D6;
-    background-color: transparent;
-    border: 1px solid #1F48D6;
+    color: $color_styles-white;
+    background-color: $color_azure-radiance-700;
+    border-color: $color_azure-radiance-700;
 
     &:hover {
-      color: #203CAD;
-      border-color: #203CAD;
+      background-color: $color_azure-radiance-600;
+      color: $color_styles-white;
     }
     &:disabled {
-      color: #929497;
-      border-color: #929497;
+      pointer-events: none;
+      background-color: #AEB0B2;
+      border: none;
+      color: $color_styles-white;
     }
   }
 }
