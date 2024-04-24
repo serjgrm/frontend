@@ -1,21 +1,25 @@
+@import "../ui-common-styles/colors";
+
 .checkbox {
   width: 32px;
   height: 32px;
   border-radius: 4px;
-  border: 2px solid #1F48D6;
-  background-color: transparent;
+  border: 2px solid $color_azure-radiance-700;
+  //background-color: transparent;
+  background-color: $color_azure-radiance-50;
   transition: background-color 0.2s ease-out;
 
   &:disabled {
     pointer-events: none;
-    border-color: #CFD0D2;
+    background-color: $color_mountain-mist-50;
+    border-color: $color_mountain-mist-400;
   }
 
   &--active {
-    background-color: #1F48D6;
+    background-color: $color_azure-radiance-700;
 
     &:disabled {
-      background-color: #CFD0D2;
+      background-color: $color_mountain-mist-400;
     }
   }
 
@@ -25,5 +29,12 @@
     top: -1px;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+
+    &--active {
+      opacity: 1;
+      transition: opacity 0.2s ease-out;
+    }
   }
 }
