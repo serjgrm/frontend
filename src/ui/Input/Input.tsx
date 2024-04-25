@@ -44,7 +44,6 @@ export const Input: FC<Props> = ({
         htmlFor={name}
       >
         {labelText}
-        {required && '*'}
       </label>
       
       <input

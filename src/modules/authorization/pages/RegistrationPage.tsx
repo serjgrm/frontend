@@ -1,6 +1,13 @@
-import {ChangeEvent, useState} from "react";
+import {ChangeEvent, Dispatch, FC, SetStateAction, useState} from "react";
+import './AuthPage.scss';
+import {CurrentPage} from "../types/CurrentPage.ts";
 
-const RegistrationPage = () => {
+interface Props {
+  changePage: Dispatch<SetStateAction<CurrentPage>>;
+  closeModal: () => void;
+}
+
+const RegistrationPage: FC<Props> = ({ changePage, closeModal }) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -19,7 +26,7 @@ const RegistrationPage = () => {
   }
   
   return (
-    <section className="login">
+    <section className="registration">
       <input
         className="email"
         type="email"

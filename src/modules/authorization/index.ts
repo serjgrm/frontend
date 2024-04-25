@@ -1,4 +1,1 @@
-export const Pages = {
-  // Sign In
-  // Sign Up
-};
+export * from './pages/AuthPage';
