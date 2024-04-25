@@ -19,9 +19,7 @@
   background-color: $color_azure-radiance-10;
   display: flex;
   flex-direction: column;
-}
 
-.login {
   &__header {
     display: grid;
     grid-template-columns: 1fr 32px;
@@ -33,8 +31,5 @@
   &__title {
     @include OverrideH6;
     text-align: center;
-  }
-
-  &__close-icon {
   }
 }
