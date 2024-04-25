@@ -3,7 +3,7 @@ import './AuthPage.scss';
 import {CurrentPage} from "../types/CurrentPage.ts";
 import {Input} from "@ui/Input";
 import iconClose from "@assets/icon-close-32.svg";
-import {Button} from "@ui/Button";
+// import {Button} from "@ui/Button";
 
 interface Props {
   changePage: Dispatch<SetStateAction<CurrentPage>>;
@@ -11,7 +11,6 @@ interface Props {
 }
 
 const RegistrationPage: FC<Props> = ({ changePage, closeModal }) => {
-  const [showPassword, setShowPassword] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [nameOfOrganisation, setNameOfOrganisation] = useState<string>('');
@@ -44,7 +43,7 @@ const RegistrationPage: FC<Props> = ({ changePage, closeModal }) => {
       </Input>
       
       <Input
-        type={showPassword ? "text" : "password"}
+        type={"password"}
         required={true}
         labelText={'Пароль'}
         name={'password'}
@@ -55,7 +54,7 @@ const RegistrationPage: FC<Props> = ({ changePage, closeModal }) => {
       </Input>
       
       <Input
-        type={showPassword ? "text" : "password"}
+        type={"password"}
         required={true}
         labelText={'Повторити пароль'}
         name={'repeat-password'}

@@ -14,7 +14,6 @@ interface Props {
 }
 
 const LoginPage: FC<Props> = ({ changePage, closeModal }) => {
-  const [showPassword, setShowPassword] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   
@@ -49,7 +48,7 @@ const LoginPage: FC<Props> = ({ changePage, closeModal }) => {
       </Input>
       
       <Input
-        type={showPassword ? "text" : "password"}
+        type={"password"}
         required={true}
         labelText={'Пароль'}
         name={'password'}
