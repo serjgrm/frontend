@@ -1,9 +1,10 @@
-import { Dispatch, FC, SetStateAction, useState } from "react";
+import {Dispatch, FC, SetStateAction, useState} from "react";
 import './AuthPage.scss';
 import {CurrentPage} from "../types/CurrentPage.ts";
 import {Input} from "@ui/Input";
 import iconClose from "@assets/icon-close-32.svg";
-// import {Button} from "@ui/Button";
+import {Checkbox} from "@ui/Checkbox";
+import {Button} from "@ui/Button";
 
 interface Props {
   changePage: Dispatch<SetStateAction<CurrentPage>>;
@@ -15,6 +16,11 @@ const RegistrationPage: FC<Props> = ({ changePage, closeModal }) => {
   const [password, setPassword] = useState<string>('');
   const [nameOfOrganisation, setNameOfOrganisation] = useState<string>('');
   const [repeatPassword, setRepeatPassword] = useState<string>('');
+  const [isVolunteer, setIsVolunteer] = useState<boolean>(false);
+  
+  const goToLogin = () => {
+    changePage(CurrentPage.LOGIN_PAGE);
+  }
   
   return (
     <section className="registration">
@@ -75,7 +81,19 @@ const RegistrationPage: FC<Props> = ({ changePage, closeModal }) => {
         Шевченко Ольга Олександрівна
       </Input>
       
-      {/*<Button callback={}*/}
+      <Checkbox
+        active={isVolunteer}
+        callbackToggle={() => setIsVolunteer(prev => !prev)}
+        legend="Я волонтер"
+      />
+      
+      <Button isPrimary={true} callback={() => {}}>
+        Зареєструватись
+      </Button>
+      
+      <Button callback={goToLogin}>
+        Маєш аккаунт?
+      </Button>
       
     </section>
   );
