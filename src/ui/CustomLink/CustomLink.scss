@@ -1,19 +1,21 @@
+@import "../ui-common-styles/colors";
+
 .custom-link {
-  color: #4B4C4F;
+  color: $color_mountain-mist-700;
   font-family: Roboto, sans-serif;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.2s ease-out;
 
   &:after {
-    background-color: #4B4C4F;
+    background-color: $color_mountain-mist-700;
   }
 
   &:hover {
-    color: #0e0e0e;
+    color: $color_styles-black;
 
     &:after {
-      background-color: #0e0e0e;
+      background-color: $color_styles-black;
     }
   }
 
@@ -31,31 +33,31 @@
   }
 
   &--primary {
-    color: #1F48D6;
+    color: $color_azure-radiance-700;
 
     &:after {
-      background-color: #1F48D6;
+      background-color: $color_azure-radiance-700;
     }
 
     &:hover {
-      color: #203CAD;
+      color: $color_azure-radiance-800;
 
       &:after {
-        background-color: #203CAD;
+        background-color: $color_azure-radiance-800;
       }
     }
   }
 
   &--disabled {
     pointer-events: none;
-    color: #929497;
+    color: $color_mountain-mist-400;
 
     &--active{
 
     }
 
     &:after {
-      background-color: #929497;
+      background-color: $color_mountain-mist-400;
     }
   }
 }
