@@ -1,3 +1,5 @@
+@import "../ui-common-styles/colors";
+
 .radiobutton {
   width: 32px;
   height: 32px;
@@ -9,21 +11,27 @@
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    border: 2px solid #1F48D6;
-    transition: border-width 0.1s ease-in;
+    border: 2px solid $color_azure-radiance-700;
+    background-color: $color_azure-radiance-50;
+    transition:
+            border-width 0.1s ease-in,
+            background-color 0.1s ease-in;
 
     &--active {
       border-width: 8px;
+      background-color: transparent;
     }
   }
 
 
   &:disabled {
     .radiobutton__icon {
-      border: 2px solid #CFD0D2;
+      border: 2px solid $color_mountain-mist-400;
+      background-color: $color_mountain-mist-50;
 
       &--active {
         border-width: 8px;
+        background-color: transparent;
       }
     }
   }

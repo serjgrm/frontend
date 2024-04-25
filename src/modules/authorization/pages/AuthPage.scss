@@ -1,0 +1,35 @@
+@import "../../../ui/ui-common-styles/colors";
+@import "../../../ui/ui-common-styles/typography";
+
+.auth-page-modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($color_azure-radiance-50, 0.9);
+}
+
+.login, .registration {
+  padding: 40px;
+  border-radius: 24px;
+  background-color: $color_azure-radiance-10;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr 32px;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 27px;
+  }
+
+  &__title {
+    @include OverrideH6;
+    text-align: center;
+  }
+}

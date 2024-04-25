@@ -2,9 +2,11 @@
 @import "../ui-common-styles/colors";
 
 .button {
-  width: 100%;
+  max-width: 420px;
   height: 48px;
   border-radius: 8px;
+  margin-bottom: 16px;
+  cursor: pointer;
   transition:
           0.3s color linear,
           0.3s border-color linear,
