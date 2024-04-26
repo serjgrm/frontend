@@ -10,7 +10,7 @@ interface Props {
 }
 
 const AuthPage: FC<Props> = ({ closeModal }) => {
-  const [currentPage, setCurrentPage] = useState<CurrentPage>(CurrentPage.LOGIN_PAGE);
+  const [currentPage, setCurrentPage] = useState<CurrentPage>(CurrentPage.REGISTRATION_PAGE);
   
   return (
     <div

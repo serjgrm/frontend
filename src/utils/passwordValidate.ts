@@ -1,4 +1,4 @@
-interface Flags {
+export interface PasswordValidateFlags {
   minLength: boolean;
   hasNumber: boolean;
   hasLetterUpperCase: boolean;
@@ -6,8 +6,8 @@ interface Flags {
   dontHasSpaces: boolean;
 }
 
-export const passwordValidate = (password: string): Flags => {
-  const flags: Flags = {
+export const passwordValidate = (password: string): PasswordValidateFlags => {
+  const flags: PasswordValidateFlags = {
     minLength: false,
     hasNumber: false,
     hasLetterUpperCase: false,

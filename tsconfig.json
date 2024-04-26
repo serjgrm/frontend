@@ -28,6 +28,7 @@
       "@pages/*":  ["src/pages/*"],
       "@ui/*": ["src/ui/*"],
       "@utils/*": ["src/utils/*"],
+      "@config": ["src/config.ts"],
     },
   },
   "include": ["src"],

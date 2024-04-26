@@ -1,4 +1,4 @@
-import {Dispatch, FC, SetStateAction, useState} from 'react';
+import {Dispatch, FC, SetStateAction, useEffect, useState} from 'react';
 import './AuthPage.scss';
 import {CurrentPage} from "../types/CurrentPage";
 
@@ -7,6 +7,8 @@ import {CustomLink} from "@ui/CustomLink";
 import {Button} from "@ui/Button";
 
 import iconClose from '@assets/icon-close-32.svg'
+import {passwordValidate, PasswordValidateFlags} from "@utils/passwordValidate.ts";
+import {InputStatus} from "@ui/Input/types/InputStatus.ts";
 
 interface Props {
   changePage: Dispatch<SetStateAction<CurrentPage>>
@@ -16,10 +18,28 @@ interface Props {
 const LoginPage: FC<Props> = ({ changePage, closeModal }) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [passwordFlags, setPasswordFlags] = useState<PasswordValidateFlags>({
+    minLength: false,
+    hasNumber: false,
+    hasLetterUpperCase: false,
+    hasSpecSymbol: false,
+    dontHasSpaces: true,
+  })
+  
+  useEffect(() => {
+    setPasswordFlags(passwordValidate(password));
+  }, [password])
   
   const goToRegistration = () => {
     changePage(CurrentPage.REGISTRATION_PAGE)
   }
+  
+  const passwordIsValid
+    = passwordFlags.hasLetterUpperCase
+    && passwordFlags.hasNumber
+    && passwordFlags.hasSpecSymbol
+    && passwordFlags.minLength
+    && passwordFlags.dontHasSpaces;
   
   return (
     <section className="login">
@@ -54,6 +74,7 @@ const LoginPage: FC<Props> = ({ changePage, closeModal }) => {
         name={'password'}
         value={password}
         setValue={setPassword}
+        status={passwordIsValid ? InputStatus.SUCCESS : undefined}
       >
         Пароль
       </Input>
@@ -67,7 +88,7 @@ const LoginPage: FC<Props> = ({ changePage, closeModal }) => {
       </Button>
       
       <Button callback={goToRegistration}>
-        ЗАРЕЄСТРУВАТИСЯ
+        Не маєш аккаунт?
       </Button>
     </section>
   );
