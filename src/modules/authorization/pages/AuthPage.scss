@@ -1,5 +1,5 @@
-@import "../../../ui/ui-common-styles/colors";
-@import "../../../ui/ui-common-styles/typography";
+@import '../../../styles/base/mixins';
+@import '../../../styles/base/variables';
 
 .auth-page-modal {
   position: fixed;

@@ -1,6 +1,8 @@
 import {useState} from 'react';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import './App.css';
+// import './App.css';
+import './styles/main.scss';
+
 import {Header} from '@components/Header';
 import {Footer} from '@components/Footer';
 import AuthPage from '@modules/authorization/pages/AuthPage.tsx';
@@ -8,7 +10,7 @@ import {MainPage} from "@pages/MainPage";
 
 function App() {
   // const [token, setToken] = useState<string>(localStorage.getItem('token') || '');
-  const [openedAuthModalWin, setOpenedAuthModalWin] = useState<boolean>(true);
+  const [openedAuthModalWin, setOpenedAuthModalWin] = useState<boolean>(false);
   
   function openAuthModalWin() {
     setOpenedAuthModalWin(true)
@@ -20,21 +22,19 @@ function App() {
  
   return (
     <>
-      <div className="wrapper">
+      <Router>
         <Header />
-        <main className="main">
-          <Router>
+        <div className="container">
+          <main className="main">
             <Routes>
               <Route path="/" element={<MainPage />} />
             </Routes>
             
             {openedAuthModalWin && <AuthPage closeModal={closeAuthModalWin}/>}
-          </Router>
-          
-          
-        </main>
-        <Footer />
-      </div>
+          </main>
+        </div>
+      {/* <Footer /> */}
+      </Router>
     </>
   )
 }

@@ -1,28 +1,22 @@
 import {FC, ReactNode} from 'react';
-import './CustomLink.scss';
 import {LinkProps, NavLink} from "react-router-dom";
-import classNames from "classnames";
+import cn from "classnames";
 
 interface Props extends LinkProps {
   children: ReactNode;
-  isPrimary?: boolean;
+  classNames?: string;
 }
 
-export const CustomLink: FC<Props> = ({ children, isPrimary = false, ...rest }) => {
-  const className = classNames(
+export const CustomLink: FC<Props> = ({ children, classNames, ...rest }) => {
+  const className = cn(
     'custom-link',
-    { 'custom-link--primary': isPrimary },
+    classNames,
     { 'custom-link--disabled': 0 },
   )
   
   return (
-    
     <NavLink
-      className={
-        ({ isActive }) => {
-          return (isActive ? 'custom-link--active ' : '') + className
-        }
-      }
+      className={className}
       {...rest}
     >
       {children}

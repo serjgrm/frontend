@@ -1,4 +1,4 @@
-@import "../ui-common-styles/colors";
+@import '../../styles/base/variables';
 
 .custom-link {
   max-width: fit-content;
@@ -6,9 +6,11 @@
   color: $color_mountain-mist-700;
   font-family: Roboto, sans-serif;
   font-weight: 500;
-  text-decoration: underline;
-  text-underline-offset: 6px;
-  transition: color 0.2s ease-out;
+  padding-bottom: 6px;
+  -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+     -o-transition: all 0.3s;
+        transition: all 0.3s;
 
   &:after {
     background-color: $color_mountain-mist-700;
@@ -18,11 +20,21 @@
     color: $color_styles-black;
   }
 
-  &--primary {
-    color: $color_azure-radiance-700;
+  &--secondary {
+    color: $color_mountain-mist-700;
 
     &:hover {
+      color: $color_mountain-mist-950;
+      border-bottom: solid 2px $color_mountain-mist-950;
+    }
+  }
+
+  &--primary {
+    color: $color_azure-radiance-700;
+    border-bottom: solid 2px $color_azure-radiance-700;
+    &:hover {
       color: $color_azure-radiance-800;
+      border-bottom: solid 2px $color_azure-radiance-800;
     }
   }
 

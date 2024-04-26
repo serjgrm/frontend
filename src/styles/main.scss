@@ -1,0 +1,39 @@
+@import 'base/reset';
+@import 'base/variables';
+@import 'base/mixins';
+
+@import '../components/Header/Header';
+@import '../modules/authorization/pages/AuthPage';
+
+@import '../ui/CustomLink/CustomLink';
+
+
+p, span, h1, h2, h3, h4, h5, h6, label, input, a {
+  font-family: $preset-font;
+}
+
+html, body {
+  height: 100%;
+}
+
+// Layout
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+.container {
+  width: 1360px;
+  margin: 0 auto;
+  position: relative;
+}
+
+// Components
+.icon {
+  cursor: pointer;
+}
