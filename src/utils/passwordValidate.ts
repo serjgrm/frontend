@@ -35,6 +35,5 @@ export const passwordValidate = (password: string): Flags => {
     }
   })
   
-  
   return flags;
 }

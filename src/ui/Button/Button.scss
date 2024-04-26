@@ -1,5 +1,5 @@
-@import "../ui-common-styles/typography";
-@import "../ui-common-styles/colors";
+@import '../../styles/base/mixins';
+@import '../../styles/base/variables';
 
 .button {
   max-width: 420px;
