@@ -26,20 +26,24 @@ const LoginPage: FC<Props> = ({ changePage, closeModal }) => {
     dontHasSpaces: true,
   })
   
-  useEffect(() => {
-    setPasswordFlags(passwordValidate(password));
-  }, [password])
-  
   const goToRegistration = () => {
     changePage(CurrentPage.REGISTRATION_PAGE)
   }
   
-  const passwordIsValid
-    = passwordFlags.hasLetterUpperCase
-    && passwordFlags.hasNumber
-    && passwordFlags.hasSpecSymbol
-    && passwordFlags.minLength
-    && passwordFlags.dontHasSpaces;
+  const login = () => {
+    setPasswordFlags(passwordValidate(password));
+    
+    const passwordIsValid
+      = passwordFlags.hasLetterUpperCase
+      && passwordFlags.hasNumber
+      && passwordFlags.hasSpecSymbol
+      && passwordFlags.minLength
+      && passwordFlags.dontHasSpaces;
+    
+    if (!passwordIsValid) {
+      // here i wanna set input password as incorrect
+    }
+  }
   
   return (
     <section className="login">
@@ -74,7 +78,7 @@ const LoginPage: FC<Props> = ({ changePage, closeModal }) => {
         name={'password'}
         value={password}
         setValue={setPassword}
-        status={passwordIsValid ? InputStatus.SUCCESS : undefined}
+        status={undefined}
       >
         Пароль
       </Input>
