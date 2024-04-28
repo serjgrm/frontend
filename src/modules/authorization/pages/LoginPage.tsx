@@ -79,7 +79,10 @@ const LoginPage: FC<Props> = ({ changePage, closeModal }) => {
         Пароль
       </Input>
       
-      <CustomLink to={'/password-recovery'} isPrimary={true}>
+      <CustomLink 
+        to={'/password-recovery'} 
+        classNames="custom-link--primary"
+      >
         Забули пароль?
       </CustomLink>
       

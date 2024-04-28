@@ -1,6 +1,6 @@
 import {Dispatch, FC, SetStateAction} from 'react';
 import {InputStatus} from "./types/InputStatus.ts";
-import classNames from "classnames";
+import cn from "classnames";
 import './Input.scss';
 
 interface Props {
@@ -12,6 +12,7 @@ interface Props {
   name: string;
   value: string;
   setValue: Dispatch<SetStateAction<string>>;
+  classNames?: string;
 }
 
 export const Input: FC<Props> = ({
@@ -22,15 +23,17 @@ export const Input: FC<Props> = ({
     status,
     value,
     setValue,
+    classNames,
   }) => {
-  const classesInput = classNames(
+  const classesInput = cn(
+    classNames,
     'input',
     {'input--success': status === InputStatus.SUCCESS},
     {'input--warning': status === InputStatus.WARNING},
     {'input--error': status === InputStatus.ERROR},
   );
   
-  const classesLabel = classNames(
+  const classesLabel = cn(
     'label',
     {'label--success': status === InputStatus.SUCCESS},
     {'label--warning': status === InputStatus.WARNING},

@@ -1,11 +1,9 @@
-@import '../../styles/base/mixins';
-@import '../../styles/base/variables';
+@import "@style-utils";
 
 .button {
   max-width: 420px;
   height: 48px;
   border-radius: 8px;
-  margin-bottom: 16px;
   cursor: pointer;
   transition:
           0.3s color linear,

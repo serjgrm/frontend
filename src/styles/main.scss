@@ -1,12 +1,6 @@
-@import 'base/reset';
-@import 'base/variables';
-@import 'base/mixins';
+@import 'style-utils';
 
-@import '../components/Header/Header';
-@import '../modules/authorization/pages/AuthPage';
-
-@import '../ui/CustomLink/CustomLink';
-
+$preset-font: Roboto, sans-serif;
 
 p, span, h1, h2, h3, h4, h5, h6, label, input, a {
   font-family: $preset-font;

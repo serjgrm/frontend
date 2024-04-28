@@ -1,15 +1,22 @@
 import {FC} from 'react';
 import './RadioButton.scss';
-import classNames from "classnames";
+import cn from "classnames";
 
 interface Props {
   disabled?: boolean;
   active: boolean;
   setActive: () => void;
+  classNames?: string;
 }
 
-export const RadioButton: FC<Props> = ({ active, setActive, disabled = false}) => {
-  const classes = classNames(
+export const RadioButton: FC<Props> = ({ 
+  active, 
+  setActive,
+  disabled = false,
+  classNames
+}) => {
+  const className = cn(
+    classNames,
     'radiobutton__icon',
     {'radiobutton__icon--active': active}
   )
@@ -20,7 +27,7 @@ export const RadioButton: FC<Props> = ({ active, setActive, disabled = false}) =
       onClick={setActive}
       disabled={disabled}
     >
-      <div className={classes}></div>
+      <div className={className}></div>
     </button>
   );
 };

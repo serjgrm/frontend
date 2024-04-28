@@ -6,8 +6,8 @@ interface Props {
 
 export const MainPage: FC<Props> = () => {
   return (
-    <div>
-      
-    </div>
+    <h1>
+      Main Page
+    </h1>
   );
 }
