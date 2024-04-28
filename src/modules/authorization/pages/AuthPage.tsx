@@ -9,7 +9,7 @@ interface Props {
   closeModal: () => void;
 }
 
-const AuthPage: FC<Props> = ({ closeModal }) => {
+export const AuthPage: FC<Props> = ({ closeModal }) => {
   const [currentPage, setCurrentPage] = useState<CurrentPage>(CurrentPage.REGISTRATION_PAGE);
   
   return (
@@ -32,5 +32,3 @@ const AuthPage: FC<Props> = ({ closeModal }) => {
     </div>
   );
 }
-
-export default AuthPage;

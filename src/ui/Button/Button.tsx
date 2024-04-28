@@ -1,5 +1,5 @@
 import {FC} from 'react';
-import classNames from "classnames";
+import cn from "classnames";
 import './Button.scss';
 
 interface Props {
@@ -7,17 +7,25 @@ interface Props {
   callback: () => void;
   isPrimary?: boolean;
   disabled?: boolean;
+  classNames?: string;
 }
 
-export const Button: FC<Props> = ({ children, callback, isPrimary = false, disabled = false }) => {
-  const classes = classNames(
+export const Button: FC<Props> = ({ 
+  children, 
+  callback, 
+  isPrimary = false, 
+  disabled = false,
+  classNames,
+}) => {
+  const className = cn(
+    classNames,
     'button',
     {'button--is-primary': isPrimary},
   )
   
   return (
     <button
-      className={classes}
+      className={className}
       onClick={callback}
       disabled={disabled}
     >
