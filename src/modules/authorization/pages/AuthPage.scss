@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 5;
   top: 0;
   left: 0;
   right: 0;
@@ -34,5 +35,9 @@
 
   .checkbox-wrapper {
     margin-bottom: 27px;
+  }
+
+  &__button {
+    margin-top: 16px;
   }
 }
