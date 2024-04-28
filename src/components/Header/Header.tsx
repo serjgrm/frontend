@@ -1,6 +1,7 @@
 import { FC } from 'react';
-import logo from '../../assets/icons/logo.png';
+import './Header.scss';
 import { CustomLink } from '../../ui/CustomLink/CustomLink';
+import { Logo } from '@/ui/Logo';
 
 interface Props { }
 
@@ -9,34 +10,29 @@ export const Header: FC<Props> = () => {
     <>
       <div className="container">
         <header className="header">
-          <CustomLink
-            className="header__logo"
-            to={"/головна-сторінка"}
-          >
-            <img src={logo} alt="logo" />
-          </CustomLink>
-          <nav className="header__nav nav">
-            <ul className="nav__list">
-              <li className="nav__item">
+          <Logo/>
+          <nav className="header__nav">
+            <ul className="header__list">
+              <li className="header__item">
                 <CustomLink
-                  to={"/Про-нас"}
-                  classNames="nav__link custom-link--secondary"
+                  to={"/frontend"}
+                  classNames="header__link"
                 >
                   Про нас
                 </CustomLink>
               </li>
-              <li className="nav__item">
+              <li className="header__item">
                 <CustomLink
-                  classNames="nav__link custom-link--secondary"
-                  to={"/Усі-збори"}
+                  classNames="header__link"
+                  to={"frontend/fundraisers-page"}
                 >
                   Усі збори
                 </CustomLink>
               </li>
-              <li className="nav__item">
+              <li className="header__item">
                 <CustomLink
-                  classNames="nav__link custom-link--secondary"
-                  to={"/ТОП-волонтерів"}
+                  classNames="header__link"
+                  to={"frontend/ТОП-волонтерів"}
                 >
                   ТОП волонтерів
                 </CustomLink>
@@ -46,13 +42,14 @@ export const Header: FC<Props> = () => {
           <div className="header__actions actions">
             <div className="actions__wrapper">
               <CustomLink
-                classNames="actions__link custom-link--primary"
+                classNames="actions__link"
+                isPrimary={true}
                 to={"#Організувати-збір"}
               >
                 Організувати збір
               </CustomLink>
               <CustomLink
-                classNames="actions__link custom-link--secondary"
+                classNames="actions__link"
                 to={"#Увійти"}
               >
                 Увійти

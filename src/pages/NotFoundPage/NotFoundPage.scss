@@ -1,0 +1,24 @@
+@import "@style-utils";
+
+.not-found-page {
+  padding-block: 145px 248px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    @include OverrideH2;
+  }
+
+  &__description {
+    @include OverrideH6;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  &__button {
+    margin-top: 32px;
+    width: 400px;
+  }
+}

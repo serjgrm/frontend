@@ -1,25 +1,35 @@
 import {FC, ReactNode} from 'react';
-import {LinkProps, NavLink} from "react-router-dom";
+import {LinkProps, Link} from "react-router-dom";
+import './CustomLink.scss';
 import cn from "classnames";
 
 interface Props extends LinkProps {
   children: ReactNode;
   classNames?: string;
+  isPrimary?: boolean;
+  disabled?: boolean;
 }
 
-export const CustomLink: FC<Props> = ({ children, classNames, ...rest }) => {
+export const CustomLink: FC<Props> = ({ 
+  children, 
+  isPrimary = false, 
+  classNames, 
+  disabled = false, 
+  ...rest
+}) => {
   const className = cn(
-    'custom-link',
     classNames,
-    { 'custom-link--disabled': 0 },
+    'custom-link',
+    { 'custom-link--primary': isPrimary },
+    { 'custom-link--disabled': disabled },
   )
   
   return (
-    <NavLink
+    <Link
       className={className}
       {...rest}
     >
       {children}
-    </NavLink>
+    </Link>
   );
 };

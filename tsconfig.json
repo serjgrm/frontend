@@ -27,6 +27,7 @@
       "@modules/*": ["src/modules/*"],
       "@pages/*":  ["src/pages/*"],
       "@ui/*": ["src/ui/*"],
+      "@style-utils/*": ["src/styles/style-utils"],
       "@utils/*": ["src/utils/*"],
       "@config": ["src/config.ts"],
     },

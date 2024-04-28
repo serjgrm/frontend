@@ -1,28 +1,31 @@
+@import "@style-utils";
+
 .header {
   height: $header-hight;
   display: grid;
   align-items: center;
   color: $color_mountain-mist-700;
-
   grid-template-columns: 225px 874px 261px;
+
   &__logo {
+    display: flex;
     width: 68px;
     height: 48px;
   }
 
-  .nav {
-    &__list {
-      display: flex; 
-      flex-direction: row;
-    }
-    &__link {
-      margin-right: 46px;
-    }
+  &__list {
+    display: flex; 
+  }
+
+  &__link {
+    margin-right: 46px;
   }
 
   .actions {
-    display: flex;
-    justify-content: end;
+    &__wrapper {
+      display: flex;
+      justify-content: end;
+    }
 
     &__link:last-child {
       margin-left: 46px;
