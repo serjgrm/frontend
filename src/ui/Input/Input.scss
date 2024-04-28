@@ -13,18 +13,16 @@
   padding: 14px 16px;
   color: #252527;
   font-family: Roboto, sans-serif;
-  outline: transparent 2px solid;
   transition:
           color 0.2s ease-out,
-          border-color 0.2s ease-out,
-          outline-color 0.2s ease-out;
+          border-color 0.2s ease-out;
 
   &::placeholder {
     color: #929497;
   }
 
   &:focus {
-    outline: #203CAD 2px solid;
+    outline: #203CAD 1px solid;
     border-color: #203CAD;
   }
 
@@ -34,17 +32,14 @@
 
   &--success {
     border-color: #39B557;
-    outline: #39B557 1px;
   }
 
   &--warning {
     border-color: #F1B00E;
-    outline: #F1B00E 1px;
   }
 
   &--error {
     border-color: #DD3522;
-    outline: #DD3522 1px;
     pointer-events: none;
   }
 

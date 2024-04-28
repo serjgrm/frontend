@@ -11,7 +11,7 @@ import { NotFoundPage } from '@pages/NotFoundPage';
 
 function App() {
   // const [token, setToken] = useState<string>(localStorage.getItem('token') || '');
-  const [openedAuthModalWin, setOpenedAuthModalWin] = useState<boolean>(false);
+  const [openedAuthModalWin, setOpenedAuthModalWin] = useState<boolean>(true);
   
   // function openAuthModalWin() {
   //   setOpenedAuthModalWin(true)
