@@ -10,7 +10,7 @@ export const Header: FC<Props> = () => {
     <>
       <div className="container">
         <header className="header">
-          <Logo/>
+          <Logo classNames="header__logo"/>
           <nav className="header__nav">
             <ul className="header__list">
               <li className="header__item">

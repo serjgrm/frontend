@@ -6,8 +6,9 @@ import { Logo } from '@/ui/Logo';
 export const Footer: FC = () => {
   return (
     <footer className="footer">
-      <div className="container footer__wrap">
+      <div className="container footer__wrapper">
         <Logo classNames='footer__logo' />
+        
         <nav className="footer__nav">
           <ul className="footer__list">
             <li className="footer__item">

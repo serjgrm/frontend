@@ -2,18 +2,34 @@
 
 .footer {
   bottom: 0;
-  height: $footer-hight;
+  height: $footer-height;
   background-color: #DBE9FE;
   padding-block: 40px;
 
-  &__wrap {
-    display: grid;
-    grid-template-columns: 210px 345px 552px 253px;
+  &__wrapper {
+    // display: grid;
+    // grid-template-columns: 210px 345px 552px 253px;
+    @include page-grid;
     height: 100%;
   }
 
   &__logo {
     align-self: end;
+    grid-column: 1;
+  }
+
+  &__nav {
+    grid-column: 3 / 6;
+  }
+
+  &__social-links {
+    grid-column: 6 / 9;
+  }
+
+  &__company-name {
+    grid-column: 11;
+    white-space: nowrap;
+    grid-column-end: span 2;
   }
 
   &__list {
