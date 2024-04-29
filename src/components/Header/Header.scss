@@ -1,16 +1,25 @@
 @import "@style-utils";
 
 .header {
-  height: $header-hight;
-  display: grid;
+  height: $header-height;
+  @include page-grid;
+
   align-items: center;
   color: $color_mountain-mist-700;
-  grid-template-columns: 225px 874px 261px;
 
   &__logo {
-    display: flex;
-    width: 68px;
-    height: 48px;
+    grid-column: 1;
+  }
+
+  &__nav {
+    grid-column: 3 / 6;
+    white-space: nowrap;
+  }
+
+  &__actions {
+    grid-column: 12;
+    white-space: nowrap;
+    grid-column-end: span 2;
   }
 
   &__list {

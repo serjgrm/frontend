@@ -36,7 +36,7 @@ function App() {
             {openedAuthModalWin && <AuthPage closeModal={closeAuthModalWin}/>}
           </main>
         </div>
-      <Footer />
+        <Footer />
       </Router>
     </>
   )
