@@ -1,0 +1,27 @@
+@import '@style-utils';
+
+.reports {
+  height: 228px;
+  display: flex;
+  justify-content: space-evenly;
+  padding-block: 40px;
+  background-color: $color_azure-radiance-10;
+  border-radius: 24px;
+
+  &__report {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__descr {
+    @include OverrideH4;
+    color: $color_azure-radiance-700;
+  };
+
+  &__title {
+    @include OverrideH2;
+    color: $color_azure-radiance-950;
+  }
+}

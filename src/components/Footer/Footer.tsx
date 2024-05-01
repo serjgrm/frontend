@@ -1,14 +1,23 @@
-import { FC } from 'react';
 import './Footer.scss';
+import cn from 'classnames';
 import { CustomLink } from '../../ui/CustomLink/CustomLink';
 import { Logo } from '@/ui/Logo';
 
-export const Footer: FC = () => {
+interface Props {
+  classNames?: string;
+}
+
+export const Footer: React.FC<Props> = ({ classNames }) => {
+  const className = cn(
+    classNames,
+    'footer'
+  )
+
   return (
-    <footer className="footer">
+    <footer className={className}>
       <div className="container footer__wrapper">
         <Logo classNames='footer__logo' />
-        
+
         <nav className="footer__nav">
           <ul className="footer__list">
             <li className="footer__item">

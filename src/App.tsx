@@ -1,4 +1,4 @@
-import './styles/main.scss';
+import './styles/page.scss';
 
 import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -22,23 +22,22 @@ function App() {
   }
  
   return (
-    <>
+    <div className='page'>
       <Router>
-        <Header />
+        <Header classNames='page__header'/>
         <div className="container">
-          <main className="main">
+          <main className="page__main main">
             <Routes>
               <Route path="frontend/" element={<MainPage />} />
               <Route path="frontend/fundraisers-page" element={<FundraisersPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
-            
             {openedAuthModalWin && <AuthPage closeModal={closeAuthModalWin}/>}
           </main>
         </div>
-        <Footer />
+        <Footer classNames='page__footer'/>
       </Router>
-    </>
+    </div>
   )
 }
 

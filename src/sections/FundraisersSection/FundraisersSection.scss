@@ -1,0 +1,23 @@
+@import '@style-utils';
+
+.fundraisers {
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: stretch;
+    row-gap: 40px;
+    margin-top: 40px;
+  }
+
+  &__title {
+    @include OverrideH3;
+    text-align: center;
+  }
+
+  &__button {
+    margin: 40px auto 0 auto;
+    display: block;
+    width: 440px;
+  }
+}
