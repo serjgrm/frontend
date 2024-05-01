@@ -7,8 +7,6 @@
   padding-block: 40px;
 
   &__wrapper {
-    // display: grid;
-    // grid-template-columns: 210px 345px 552px 253px;
     @include page-grid;
     height: 100%;
   }

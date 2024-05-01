@@ -1,0 +1,66 @@
+@import '@style-utils';
+
+.instruction {
+  height: 310px;
+
+  &__title {
+    @include OverrideH3;
+    text-align: center;
+  }
+
+  &__numbers {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+  }
+
+  &__hr {
+    width: 188px; 
+    height: 1px;
+    display: block;
+    background-color: $color_azure-radiance-700;
+  }
+
+  &__circle {
+    width: 116px;
+    height: 116px;
+    border-radius: 100%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include OverrideH2;
+    color: $color_azure-radiance-950;
+
+    &::after {
+      display: block;
+      content: '';   
+      width: 219px;
+      @include OverrideH6;
+      color: $color_azure-radiance-700;
+      text-align: center;
+      position: absolute;
+      transform: translateY(115px);
+    }
+  }
+
+  .one::after {
+    content: "Настисніть “Організувати збір”";   
+  }
+
+  .two::after {
+    content: "Авторизуйтеся";   
+  }
+
+  .three::after {
+    content: "Заповніть всі поля";   
+  }
+
+  .four::after {
+    content: "Збір створено";   
+  }
+}

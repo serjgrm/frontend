@@ -1,15 +1,23 @@
-import { FC } from 'react';
 import './Header.scss';
+import cn from 'classnames';
+import { FC } from 'react';
 import { CustomLink } from '../../ui/CustomLink/CustomLink';
 import { Logo } from '@/ui/Logo';
 
-interface Props { }
+interface Props {
+  classNames?: string;
+}
 
-export const Header: FC<Props> = () => {
+export const Header: FC<Props> = ({ classNames }) => {
+  const className = cn(
+    classNames,
+    'header'
+  )
+  
   return (
     <>
       <div className="container">
-        <header className="header">
+        <header className={className}>
           <Logo classNames="header__logo"/>
           <nav className="header__nav">
             <ul className="header__list">

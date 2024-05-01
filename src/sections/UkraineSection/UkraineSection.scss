@@ -1,0 +1,46 @@
+@import '@style-utils';
+
+.ukraine {
+  height: 848px;
+  background-image: url('../../assets/images/ukraine.jpeg');
+  background-size: 100% 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 44px;
+  row-gap: 229px;
+  position: relative;
+
+  &__text {
+    padding: 8px;
+    background-color: rgba(239, 245, 255, 0.7);
+    color: $color_azure-radiance-900;
+    border-radius: 8px;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    @include OverrideH4;
+  }
+
+  &__top {
+    align-self: flex-end;
+  }
+
+  &__bottom {
+    align-self: flex-start;
+  }
+
+  &__logo-wrapper {
+    background-color: rgba(169, 188, 255, 0.4);
+    width: 116px;
+    height: 116px;
+    border-radius: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

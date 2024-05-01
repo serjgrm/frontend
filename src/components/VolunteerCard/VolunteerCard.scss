@@ -1,0 +1,31 @@
+@import '@style-utils';
+
+.volunteer-card {
+  height: 268px;
+  width: 387px;
+  background-image: url('../../assets/images/volunteer.jpeg');
+  background-size: cover;
+  background-position: center center;
+  border-radius: 16px;
+  padding: var(--volunteer-card-padding);
+  position: relative;
+
+  &__info {
+    position: absolute;
+    bottom: calc(0px + var(--volunteer-card-padding));
+    left: calc(0px + var(--volunteer-card-padding));
+    width: fit-content;
+    height: 78px;
+    background-color: rgba(239, 245, 255, 0.7);
+    border-radius: 8px;
+    padding: 8px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__name {
+    @include OverrideH6;
+  }
+}

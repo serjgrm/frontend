@@ -1,1 +1,0 @@
-export * from './SupportSection.tsx';

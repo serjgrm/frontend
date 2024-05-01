@@ -1,0 +1,40 @@
+@import '@style-utils';
+
+.fund {
+  background-image: url('https://s.yimg.com/ny/api/res/1.2/tVk_gRmWUZIhjEN8YS5Fdw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTM1OQ--/https://media.zenfs.com/en/ukrayinska_pravda_articles_451/ecde03a130f8512e92fa01fcde770e65');
+  background-size: cover;
+  width: 440px;
+  height: 435px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  border-radius: 8px;
+
+  &__title {
+    width: 100%;
+    height: 68px;
+    @include OverrideH6;
+    background-color: #EFF5FF;
+    border-radius: 8px;
+    padding: 8px;
+  }
+
+  &__date {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    color: $color-styles-white;
+    
+    p {
+      @include RobotoRegular;
+    }
+    span {
+      @include RobotoBold;
+    }
+  }
+
+  &__button {
+    margin-top: 16px;
+  }
+}
