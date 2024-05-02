@@ -19,10 +19,10 @@
     background-color: rgba(239, 245, 255, 0.7);
     border-radius: 8px;
     padding: 8px;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    backdrop-filter: blur(5px);
   }
 
   &__name {
