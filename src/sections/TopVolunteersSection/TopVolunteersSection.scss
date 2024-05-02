@@ -9,11 +9,4 @@
     @include OverrideH3;
     text-align: center;
   }
-
-  &__content {
-    margin-top: 40px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 39px;
-  }
 }
