@@ -5,13 +5,9 @@
   height: 48px;
   border-radius: 8px;
   cursor: pointer;
-  transition:
-          0.3s color linear,
-          0.3s border-color linear,
-          0.3s background-color linear;
-
+  @include transition;
   @include TextButton;
-
+  
   // styles for secondary button
   color: $color_azure-radiance-700;
   background-color: $color_azure-radiance-50;

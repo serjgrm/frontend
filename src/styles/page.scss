@@ -16,4 +16,18 @@ p, span, h1, h2, h3, h4, h5, h6, label, input, a {
   &__footer {
     margin-top: 106px;
   }
+
+  &__main {
+    margin-top: 40px;
+  }
+}
+
+html, body {
+  scroll-behavior: smooth;
+}
+
+.hr {
+  height: 1px;
+  border: none;
+  background-color: #E6E7E7;
 }

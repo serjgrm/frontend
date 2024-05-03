@@ -6,7 +6,7 @@ import { Header } from '@components/Header';
 import { Footer } from '@components/Footer';
 import { AuthPage } from '@modules/authorization/pages/AuthPage.tsx';
 import { MainPage } from "@pages/MainPage";
-import { FundraisersPage } from '@pages/FundraisersPage';
+import { FundsPage } from '@pages/FundsPage';
 import { NotFoundPage } from '@pages/NotFoundPage';
 
 function App() {
@@ -20,21 +20,21 @@ function App() {
   function closeAuthModalWin() {
     setOpenedAuthModalWin(false)
   }
- 
+  
   return (
     <div className='page'>
       <Router>
         <Header classNames='page__header'/>
-        <div className="container">
-          <main className="page__main main">
+        <main className="page__main main">
+          <div className="container">
             <Routes>
               <Route path="frontend/" element={<MainPage />} />
-              <Route path="frontend/fundraisers-page" element={<FundraisersPage />} />
+              <Route path="frontend/fundraisers-page" element={<FundsPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
             {openedAuthModalWin && <AuthPage closeModal={closeAuthModalWin}/>}
-          </main>
-        </div>
+          </div>
+        </main>
         <Footer classNames='page__footer'/>
       </Router>
     </div>

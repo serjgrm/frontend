@@ -1,0 +1,16 @@
+@import '@style-utils';
+
+.funds-page {
+  &__title {
+    @include OverrideH3;
+    text-align: center;
+  }
+
+  &__hr {
+    margin-top: 24px;
+  }
+
+  &__filter {
+    margin-top: 24px;
+  }
+}

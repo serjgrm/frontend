@@ -1,0 +1,18 @@
+@import "@style-utils";
+
+.filter-button {
+  padding: 14px 16px;
+  border-radius: 200px;
+  border: none;
+  @include RobotoBold;
+  @include transition;
+  color: $color_azure-radiance-950;
+  background-color: #EFF5FF;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+
+  &:focus {
+    border-color: $color_azure-radiance-800;
+  }
+}

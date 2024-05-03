@@ -1,0 +1,12 @@
+@import '@style-utils';
+
+.funds-filter {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+
+  &__button {
+    white-space: nowrap;
+    width: 100%;
+  }
+}

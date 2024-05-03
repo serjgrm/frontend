@@ -13,7 +13,7 @@ export const TopVolunteersSection: React.FC<Props> = ({ classNames }) => {
   )
 
   return (
-    <section className={className}>
+    <section id='top-volunteers' className={className}>
       <h3 className='top-volunteers__title'>
         ТОП волонтерів
       </h3>
