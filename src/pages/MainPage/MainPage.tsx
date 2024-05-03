@@ -12,13 +12,13 @@ interface Props {
 
 export const MainPage: FC<Props> = () => {
   return (
-    <div className="container main-page">
+    <div className="main-page">
       <HeroSection classNames='main-page__hero' />
       <FundsSection classNames='main-page__funds' />
       <ReportSection classNames='main-page__reports'/>
       <UkraineSection classNames='main-page__ukraine'/>
       <InstructionSection classNames='main-page__instruction'/>
-      <TopVolunteersSection classNames='main-page__topvolunteers' />
+      <TopVolunteersSection classNames='main-page__top-volunteers' />
     </div>
   );
 }

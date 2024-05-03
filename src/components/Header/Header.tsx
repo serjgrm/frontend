@@ -3,17 +3,30 @@ import cn from 'classnames';
 import { FC } from 'react';
 import { CustomLink } from '../../ui/CustomLink/CustomLink';
 import { Logo } from '@/ui/Logo';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   classNames?: string;
 }
 
 export const Header: FC<Props> = ({ classNames }) => {
+  const navigate = useNavigate();
+
   const className = cn(
     classNames,
     'header'
-  )
-  
+  );
+
+  const handleAnchorURL = () => {
+    setTimeout(() => {
+      const currentURL = window.location.href;
+      if (currentURL.includes('#top-volunteers')) {
+        navigate('/frontend#top-volunteers')
+      }
+      console.log(currentURL);
+    })
+  };
+
   return (
     <>
       <div className="container">
@@ -38,12 +51,13 @@ export const Header: FC<Props> = ({ classNames }) => {
                 </CustomLink>
               </li>
               <li className="header__item">
-                <CustomLink
-                  classNames="header__link"
-                  to={"frontend/ТОП-волонтерів"}
+                <a
+                  className="header__link custom-link"
+                  href="#top-volunteers"
+                  onClick={handleAnchorURL}
                 >
                   ТОП волонтерів
-                </CustomLink>
+                </a>
               </li>
             </ul>
           </nav>
@@ -66,7 +80,7 @@ export const Header: FC<Props> = ({ classNames }) => {
           </div>
         </header>
       </div>
-      <hr className="header-hr" />
+      <hr className="hr" />
     </>
   );
 };

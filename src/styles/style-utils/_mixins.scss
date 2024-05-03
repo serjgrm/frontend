@@ -10,6 +10,10 @@
   }
 }
 
+@mixin transition {
+  transition: all 0.3s;
+}
+
 @mixin page-grid {
   --columns: 4;
 
