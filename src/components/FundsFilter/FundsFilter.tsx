@@ -2,7 +2,7 @@ import './FundsFilter.scss';
 import cn from 'classnames';
 import { FilterFunds } from '@/types/FilterFunds';
 import { FilterButton } from '@/ui/FilterButton';
-import { useAppDispatch } from '@/store/hooks';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { setFundsFilterState } from '@/store/slices/fundsFilterSlice';
 
 interface Props {
@@ -11,52 +11,67 @@ interface Props {
 
 export const FundsFilter: React.FC<Props> = ({ classNames }) => {  
   const dispatch = useAppDispatch();
+  const currentFilter = useAppSelector(data => data.fundsFilter);
 
   const className = cn(
     classNames,
     'funds-filter'
   )
+  
+  const handleFilterChange = (targetFilter: FilterFunds) => {
+    if (targetFilter === currentFilter) {
+      dispatch(setFundsFilterState(FilterFunds.ALL));
+    } else {
+      dispatch(setFundsFilterState(targetFilter));
+    }
+  };
 
   return (
     <div className={className}>
-      <FilterButton 
-        callback={() => dispatch(setFundsFilterState(FilterFunds.ALL))}
-        classNames='funds-filter__button'
-      >
-        Усі збори
-      </FilterButton>
-      <FilterButton 
-        callback={() => dispatch(setFundsFilterState(FilterFunds.DRONES))}
+      <FilterButton
+        currentFilter={currentFilter}
+        buttonFilter={FilterFunds.DRONES}
+        callback={() => handleFilterChange(FilterFunds.DRONES)}
         classNames='funds-filter__button'
       >
         Дрони
       </FilterButton>
-      <FilterButton 
-        callback={() => dispatch(setFundsFilterState(FilterFunds.CARS_REPAIR))}
+      <FilterButton
+        currentFilter={currentFilter}
+        buttonFilter={FilterFunds.CARS_REPAIR}
+        callback={() => handleFilterChange(FilterFunds.CARS_REPAIR)}
         classNames='funds-filter__button'
       >
         Ремонт авто
       </FilterButton>
-      <FilterButton 
-        callback={() => dispatch(setFundsFilterState(FilterFunds.INJURED_SUPPORT))}
+      <FilterButton
+        currentFilter={currentFilter}
+        buttonFilter={FilterFunds.INJURED_SUPPORT}
+        callback={() => handleFilterChange(FilterFunds.INJURED_SUPPORT)}
         classNames='funds-filter__button'
       >
         Допомога пораненим
       </FilterButton>
       <FilterButton 
-        callback={() => dispatch(setFundsFilterState(FilterFunds.CHILDREN_SUPPORT))}
+        currentFilter={currentFilter}
+        buttonFilter={FilterFunds.CHILDREN_SUPPORT}
+        callback={() => handleFilterChange(FilterFunds.CHILDREN_SUPPORT)}
         classNames='funds-filter__button'
       >
         Допомога дітям
       </FilterButton>
-      <FilterButton 
-        callback={() => dispatch(setFundsFilterState(FilterFunds.ANIMALS_SUPPORT))}
+      <FilterButton
+        currentFilter={currentFilter}
+        buttonFilter={FilterFunds.ANIMALS_SUPPORT}
+        callback={() => handleFilterChange(FilterFunds.ANIMALS_SUPPORT)}
         classNames='funds-filter__button'
       >
         Допомога тваринам
       </FilterButton>
-      <FilterButton 
-        callback={() => dispatch(setFundsFilterState(FilterFunds.ANOTHER))}
+      <FilterButton
+        currentFilter={currentFilter}
+        buttonFilter={FilterFunds.ANOTHER} 
+        callback={() => handleFilterChange(FilterFunds.ANOTHER)}
         classNames='funds-filter__button'
       >
         Інше

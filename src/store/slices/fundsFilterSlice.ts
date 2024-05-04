@@ -3,12 +3,10 @@ import { FilterFunds } from '@/types/FilterFunds';
 
 export const fundsFilterSlice = createSlice({
   name: 'author',
-  initialState: {
-    fundsFilterState: FilterFunds.ALL
-  },
+  initialState: FilterFunds.ALL,
   reducers: {
     setFundsFilterState(_, action: PayloadAction<FilterFunds>) {
-      return { fundsFilterState: action.payload };
+      return action.payload;
     },
   },
 });

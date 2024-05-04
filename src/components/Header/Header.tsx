@@ -23,7 +23,6 @@ export const Header: FC<Props> = ({ classNames }) => {
       if (currentURL.includes('#top-volunteers')) {
         navigate('/frontend#top-volunteers')
       }
-      console.log(currentURL);
     })
   };
 
@@ -45,7 +44,7 @@ export const Header: FC<Props> = ({ classNames }) => {
               <li className="header__item">
                 <CustomLink
                   classNames="header__link"
-                  to={"frontend/fundraisers-page"}
+                  to={"frontend/funds-page"}
                 >
                   Усі збори
                 </CustomLink>

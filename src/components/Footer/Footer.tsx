@@ -31,7 +31,7 @@ export const Footer: React.FC<Props> = ({ classNames }) => {
             <li className="footer__item">
               <CustomLink
                 classNames="footer__link"
-                to={"frontend/fundraisers-page"}
+                to={"frontend/funds-page"}
               >
                 Усі збори
               </CustomLink>

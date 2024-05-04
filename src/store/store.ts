@@ -1,9 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import { fundsFilterReducer } from './slices/fundsFilterSlice';
+import { fundsReducer } from './slices/fundsSlice';
 
 export const store = configureStore({
   reducer: {
     fundsFilter: fundsFilterReducer,
+    fundsData: fundsReducer,
   },
 });
 

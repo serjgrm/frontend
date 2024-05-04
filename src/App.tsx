@@ -29,7 +29,7 @@ function App() {
           <div className="container">
             <Routes>
               <Route path="frontend/" element={<MainPage />} />
-              <Route path="frontend/fundraisers-page" element={<FundsPage />} />
+              <Route path="frontend/funds-page" element={<FundsPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
             {openedAuthModalWin && <AuthPage closeModal={closeAuthModalWin}/>}

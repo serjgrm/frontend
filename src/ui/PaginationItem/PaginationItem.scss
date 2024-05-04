@@ -1,0 +1,28 @@
+@import '@style-utils';
+
+svg path {
+  fill: $color_azure-radiance-950;
+}
+
+.pagination-item {
+  @include OverrideH6;
+  color: $color_azure-radiance-950;
+  width: 42px;
+  height: 42px;
+  background-color: $color_azure-radiance-50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  &--active {
+    border-color: $color_azure-radiance-800;
+  }
+
+  &--disabled {
+    fill: $color_mountain-mist-400;
+  }
+}
+

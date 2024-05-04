@@ -1,12 +1,10 @@
 @import '@style-utils';
 
-.funds {
-  &__list {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: stretch;
-    row-gap: 40px;
-    margin-top: 40px;
-  }
+.funds-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: stretch;
+  row-gap: 40px;
 }
+
