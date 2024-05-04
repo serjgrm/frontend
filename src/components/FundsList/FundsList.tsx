@@ -1,37 +1,37 @@
 import { useEffect, useState } from 'react';
 import './FundsList.scss';
 import cn from 'classnames';
-import funds from '../../funds-imitation.json';
 import { Fund } from '../Fund';
+import { FundType } from '@/types/Fund';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { getFunds } from '@/api/funds';
 
 interface Props {
   classNames?: string;
   limit: number;
 }
 
-interface Fund {
-  id: number,
-  title: string,
-  endDate: string,
-}
-
 export const FundsList: React.FC<Props> = ({ classNames, limit }) => {
-  const [visibleFunds, setVisibleFunds] = useState<Fund[] | []>([]);
+  const [visibleFunds, setVisibleFunds] = useState<FundType[] | []>([]);
+  const { funds } = useAppSelector(data => data.fundsData);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
+    dispatch(getFunds());
     const limitedFunds = funds.slice(0, limit);
+    
     setVisibleFunds(limitedFunds);
-  }, [limit]); 
-  
+  }, [limit, dispatch, funds]);
+
   const className = cn(
     classNames,
   )
 
   return (
     <div className={className}>
-      {visibleFunds.map(fund => (
-        <Fund key={fund.id} title={fund.title} endDate={fund.endDate} />
-      ))}
+      {visibleFunds.map(fund => {
+        return <Fund key={fund.id} title={fund.title} endDate={fund.endDate} />
+      })}
     </div>
   );
 };
