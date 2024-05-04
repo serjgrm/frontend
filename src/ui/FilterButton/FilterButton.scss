@@ -11,8 +11,7 @@
   border: 1px solid transparent;
   cursor: pointer;
 
-
-  &:focus {
+  &--active {
     border-color: $color_azure-radiance-800;
   }
 }

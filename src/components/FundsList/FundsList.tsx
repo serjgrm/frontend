@@ -8,10 +8,10 @@ import { getFunds } from '@/api/funds';
 
 interface Props {
   classNames?: string;
-  limit: number;
+  limit?: number;
 }
 
-export const FundsList: React.FC<Props> = ({ classNames, limit }) => {
+export const FundsList: React.FC<Props> = ({ classNames, limit = 6 }) => {
   const [visibleFunds, setVisibleFunds] = useState<FundType[] | []>([]);
   const { funds } = useAppSelector(data => data.fundsData);
   const dispatch = useAppDispatch();
@@ -25,6 +25,7 @@ export const FundsList: React.FC<Props> = ({ classNames, limit }) => {
 
   const className = cn(
     classNames,
+    'funds-list'
   )
 
   return (

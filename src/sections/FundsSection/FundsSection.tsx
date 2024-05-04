@@ -22,7 +22,7 @@ export const FundsSection: React.FC<Props> = ({ classNames }) => {
       <h3 className='funds__title'>
         Підтримайте збори наших волонтерів
       </h3>
-      <FundsList classNames='funds__list' limit={6}/>
+      <FundsList classNames='funds__list' />
       <Button 
         classNames='funds__button' 
         callback={lookAllFunds}
