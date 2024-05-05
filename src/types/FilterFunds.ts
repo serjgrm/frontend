@@ -1,9 +1,9 @@
 export enum FilterFunds {
-  ALL = 'Усі збори',
-  DRONES = 'Дрони',
-  CARS_REPAIR = 'Ремонт авто',
-  INJURED_SUPPORT = 'Допомога пораненим',
-  CHILDREN_SUPPORT = 'Допомога дітям',
-  ANIMALS_SUPPORT = 'Допомога тваринам',
-  ANOTHER = 'Інше'
+  ALL = 'усі збори',
+  DRONES = 'дрони',
+  CARS_REPAIR = 'ремонт авто',
+  INJURED_SUPPORT = 'допомога пораненим',
+  CHILDREN_SUPPORT = 'допомога дітям',
+  ANIMALS_SUPPORT = 'допомога тваринам',
+  ANOTHER = 'інше'
 }
