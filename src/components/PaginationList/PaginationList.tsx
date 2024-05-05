@@ -1,60 +1,58 @@
-import { useAppSelector } from '@/store/hooks';
 import './PaginationList.scss';
 import cn from 'classnames';
 import { PaginationItem } from '@/ui/PaginationItem';
-import { PaginationArrowBack } from '@/ui/PaginationItem/PaginationArrowBack.tsx';
-import { PaginationArrowForward } from '@/ui/PaginationItem/PaginationArrowForward';
-import { useState } from 'react';
+import { SetStateAction, Dispatch, useState, useEffect } from 'react';
+import { ArrowBack } from '@/svg/ArrowBack';
+import { ArrowForward } from '@/svg/ArrowForward';
 
 interface Props {
   classNames?: string;
   limit: number;
+  totalPages: number;
+  currentPage: number;
+  setCurrentPage: Dispatch<SetStateAction<number>>;
 }
 
-
-export const PaginationList: React.FC<Props> = ({ classNames, limit }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const fonds = useAppSelector(data => data.fundsData.funds)
-  const totalPages = Math.ceil((fonds.length) / limit);
-
+export const PaginationList: React.FC<Props> = ({
+  classNames,
+  totalPages,
+  currentPage,
+  setCurrentPage,
+}) => {
   const className = cn(
     classNames,
-    'pagination'
+    'pagination-list'
   )
-  
-  const pagesArray: number[] = [];
+  const [pagesArray, setPagesArray] = useState<number[]>([]);
 
-  for (let i = 1; i <= totalPages; i++) {
-    pagesArray.push(i);
-  }
+  useEffect(() => {
+    const renderPageNumbers = () => {
+      let visiblePages;
+      if (totalPages >= 5) {
+        visiblePages = 5;
+      } else {
+        visiblePages = totalPages;
+      }
+      const half = Math.floor(visiblePages / 2);
+      let start = currentPage - half;
+      let end = currentPage + half;
 
-  const renderPageNumbers = () => {
-    const visiblePages = 5;
-    const half = Math.floor(visiblePages / 2);
-    let start = currentPage - half;
-    let end = currentPage + half;
+      if (start <= 0) {
+        start = 1;
+        end = visiblePages;
+      }
 
-    if (start <= 0) {
-      start = 1;
-      end = visiblePages;
-    }
+      if (end > totalPages) {
+        end = totalPages;
+        start = totalPages - visiblePages + 1;
+      }
 
-    if (end > totalPages) {
-      end = totalPages;
-      start = totalPages - visiblePages + 1;
-    }
+      return Array.from({ length: end - start + 1 }, (_, i) => start + i);
+    };
 
-    return pagesArray.slice(start - 1, end).map(page => (
-      <PaginationItem 
-        key={page} 
-        callBack={() => setCurrentPage(page)}
-        currentPage={currentPage}
-      >
-        {page}
-      </PaginationItem>
-    ));
-  };
-  
+    setPagesArray(renderPageNumbers());
+  }, [currentPage, totalPages]);
+
   const handleBack = () => {
     setCurrentPage(prevPage => {
       if (prevPage > 1) {
@@ -75,19 +73,42 @@ export const PaginationList: React.FC<Props> = ({ classNames, limit }) => {
     })
   }
 
+  const checkForTriplet = () => {
+    if (totalPages <= 5) {
+      return true
+    }
+
+    if (currentPage + 2 >= totalPages) {
+      return true
+    }
+
+    return false
+  };
+
   return (
     <div className={className}>
-      <PaginationArrowBack
+      <PaginationItem
         callBack={handleBack}
         currentPage={currentPage}
-      />
-      {renderPageNumbers()}
-      {totalPages > currentPage && <PaginationItem>...</PaginationItem>}
-      <PaginationArrowForward 
+      >
+        <ArrowBack currentPage={currentPage} size={16}/>
+      </PaginationItem>
+      {pagesArray.map(page => (
+        <PaginationItem
+          key={page}
+          callBack={() => setCurrentPage(page)}
+          currentPage={currentPage}
+        >
+          {page}
+        </PaginationItem>
+      ))}
+      {!checkForTriplet() && <PaginationItem>...</PaginationItem>}
+      <PaginationItem
         callBack={handleForward}
-        totalPages={totalPages}
         currentPage={currentPage}
-      />
+      >
+        <ArrowForward currentPage={currentPage} totalPages={totalPages} size={16}/>
+      </PaginationItem>
     </div>
   );
 };

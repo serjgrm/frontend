@@ -1,0 +1,19 @@
+@import '@style-utils';
+
+.navigation-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &__title {
+    @include OverrideH3;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  &__link {
+    position: absolute;
+    left: 0;
+  }
+}
+
