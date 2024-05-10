@@ -1,4 +1,5 @@
 import './FundsPage.scss';
+import cn from 'classnames';
 import { FundsFilter } from '@/components/FundsFilter';
 import { PaginationList } from '@/components/PaginationList';
 import { FundsList } from '@/components/FundsList';
@@ -9,7 +10,16 @@ import { FundType } from '@/types/Fund';
 import { FilterFunds } from '@/types/FilterFunds';
 import { NavigationTitle } from '@/components/NavigationTitle';
 
-export const FundsPage: React.FC = () => {
+interface Props {
+  classNames?: string,
+}
+
+export const FundsPage: React.FC<Props> = ({ classNames }) => {
+  const className = cn(
+    'funds-page',
+    classNames
+  )
+
   const limit = 12;
   const dispatch = useAppDispatch();
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,7 +29,7 @@ export const FundsPage: React.FC = () => {
   const [fundsPages, setFundsPages] = useState<FundType[][]>([]);
 
   const visibleFunds = useMemo(() => {
-    return fundsPages[currentPage - 1]
+    return fundsPages[currentPage - 1] || fundsPages[0]
   },[currentPage, funds, fundsFilter, fundsPages])
 
   const filteredFunds = useMemo(() => {
@@ -67,7 +77,7 @@ export const FundsPage: React.FC = () => {
   }, [funds, fundsFilter])
   
   return (
-    <div className='funds-page'>
+    <div className={className}>
       <NavigationTitle url='/frontend'>
         Усі збори
       </NavigationTitle>
@@ -78,13 +88,13 @@ export const FundsPage: React.FC = () => {
         limit={limit}
         visibleFunds={visibleFunds} 
       />}
-      <PaginationList 
+      {totalPages > 1 && (<PaginationList 
         classNames='funds-page__pagination-list' 
         limit={limit}
         totalPages={totalPages}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
-      />
+      />)}
     </div>
   );
 };

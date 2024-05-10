@@ -2,15 +2,21 @@
 
 .hero {
   padding: 40px;
-  background-image: url('../../assets/images/hero.jpeg');
+  background-image: url('../../assets/images/hero.webp');
   height: 625px;
   border-radius: 24px;
-  object-fit: cover;
-  background-size: 100% 100%;
+  background-size: cover;
+  // background-position: center top -150px; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  @include on-tablet {
+    padding-inline: 0;
+    background-position: center;
+    height: 412px;
+  }
 
   &::before {
     content: "";
@@ -21,7 +27,10 @@
     border-radius: 24px;
     height: 625px;
     background-color: rgba(31, 72, 214, 0.2);
-    z-index: 1; 
+    z-index: 1;
+    @include on-tablet {
+      height: 412px;
+    }
   }
 
   &__title {
@@ -29,6 +38,10 @@
     color: $color_styles-white;
     text-align: center;
     z-index: 2; 
+
+    @include on-tablet {
+      font-size: 49px;
+    }
   }
 
   &__button {

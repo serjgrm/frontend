@@ -11,6 +11,13 @@
   row-gap: 229px;
   position: relative;
 
+  @include on-tablet {
+    height: 458px;
+    row-gap: 104px;
+    padding-block: 50px;
+    column-gap: 0;
+  }
+  
   &__text {
     padding: 8px;
     background-color: rgba(239, 245, 255, 0.7);
@@ -20,14 +27,40 @@
     height: fit-content;
     text-align: center;
     @include OverrideH4;
+
+    @include on-tablet {
+      font-size: 18px;
+    }
+
+    &--rel-pos {
+      @include on-tablet {
+        top: 20px;
+      }
+    }
   }
 
-  &__top {
+  &__desktop-top {
     align-self: flex-end;
   }
 
-  &__bottom {
+  &__desktop-bottom {
     align-self: flex-start;
+  }
+
+  &__tablet-top {
+    @include on-tablet {
+      align-self: flex-start;
+      width: 393px;
+    }
+  }
+
+  &__tablet-bottom {
+    @include on-tablet {
+      align-self: flex-end;
+      width: 334px;
+      position: relative;
+      left: -40px;
+    }
   }
 
   &__logo-wrapper {
@@ -42,5 +75,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include on-tablet {
+      width: 72px;
+      height: 72px;
+    }
+  }
+
+  &__logo {
+    @include on-tablet {
+      width: 42px;
+      height: 32px;
+    }
   }
 }

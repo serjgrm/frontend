@@ -1,6 +1,7 @@
 @import "@style-utils";
 
 .filter-button {
+  // height: 52px;
   padding: 14px 16px;
   border-radius: 200px;
   border: none;
@@ -13,5 +14,12 @@
 
   &--active {
     border-color: $color_azure-radiance-800;
+  }
+
+  @include on-tablet {
+    padding: 11px 16px;
+    width: 108px;
+    font-size: 13px;
+    white-space: wrap;
   }
 }

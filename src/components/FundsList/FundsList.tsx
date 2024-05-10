@@ -1,6 +1,6 @@
 import './FundsList.scss';
 import cn from 'classnames';
-import { Fund } from '../Fund';
+import { FundCard } from '../FundCard';
 import { FundType } from '@/types/Fund';
 
 interface Props {
@@ -18,7 +18,7 @@ export const FundsList: React.FC<Props> = ({ classNames, visibleFunds }) => {
   return (
     <div className={className}>
       {visibleFunds.map(fund => {
-        return <Fund key={fund.id} title={fund.title} endDate={fund.endDate} />
+        return <FundCard key={fund.id} title={fund.title} endDate={fund.endDate} />
       })}
     </div>
   );

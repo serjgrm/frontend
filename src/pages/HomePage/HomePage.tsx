@@ -1,0 +1,31 @@
+import './HomePage.scss';
+import cn from 'classnames';
+import { FC } from 'react';
+import { HeroSection } from '@/sections/HeroSection/HeroSection';
+import { FundsSection } from '@/sections/FundsSection';
+import { ReportSection } from '@/sections/ReportSection';
+import { UkraineSection } from '@/sections/UkraineSection';
+import { InstructionSection } from '@/sections/InstructionSection';
+import { TopVolunteersSection } from '@/sections/TopVolunteersSection';
+
+interface Props {
+  classNames?: string,
+}
+
+export const HomePage: FC<Props> = ( { classNames }) => {
+  const className = cn(
+    'home-page',
+    classNames,
+  )
+
+  return (
+    <div className={className}>
+      <HeroSection classNames='home-page__hero' />
+      <FundsSection classNames='home-page__funds' />
+      <ReportSection classNames='home-page__reports'/>
+      <UkraineSection classNames='home-page__ukraine'/>
+      <InstructionSection classNames='home-page__instruction'/>
+      <TopVolunteersSection classNames='home-page__top-volunteers' />
+    </div>
+  );
+}

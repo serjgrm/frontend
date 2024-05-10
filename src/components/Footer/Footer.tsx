@@ -66,9 +66,10 @@ export const Footer: React.FC<Props> = ({ classNames }) => {
             </li>
           </ul>
         </div>
-        <div className="footer__company-name">
+        
+        <p className="footer__company-name">
           Volunteers © Bridge 2024 🇺🇦
-        </div>
+        </p>
       </div>
     </footer>
   );

@@ -1,4 +1,4 @@
-import './Fund.scss';
+import './FundCard.scss';
 import cn from 'classnames';
 import { Button } from '@/ui/Button';
 
@@ -8,10 +8,10 @@ interface Props {
   endDate: string;
 }
 
-export const Fund: React.FC<Props> = ({ classNames, title, endDate }) => {
+export const FundCard: React.FC<Props> = ({ classNames, title, endDate }) => {
   const className = cn(
     classNames,
-    'fund'
+    'fund-card'
   )
 
   const donation = () => {
@@ -20,17 +20,17 @@ export const Fund: React.FC<Props> = ({ classNames, title, endDate }) => {
 
   return (
     <article className={className}>
-      <h6 className='fund__title'>{title}</h6>
-      <div className='fund__date'>
+      <h6 className='fund-card__title'>{title}</h6>
+      <div className='fund-card__date'>
         <p>Дата завершення збору</p>
         <span>{endDate}</span>
       </div>
       <Button 
         callback={donation} 
-        classNames='fund__button'
+        classNames='fund-card__button'
         isPrimary={true}
       >
-        Задонатити
+        ЗАДОНАТИТИ
       </Button>
     </article>
   );

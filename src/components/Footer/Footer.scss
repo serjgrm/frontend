@@ -2,13 +2,23 @@
 
 .footer {
   bottom: 0;
-  height: $footer-height;
+  height: 194px;
   background-color: #DBE9FE;
   padding-block: 40px;
 
+  @include on-tablet {
+    height: 190px
+  }
+  
   &__wrapper {
     @include page-grid;
     height: 100%;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: space-between;
+      gap: 0;
+    }
   }
 
   &__logo {
@@ -39,10 +49,17 @@
 
   &__link {
     margin-right: 46px;
+    @include on-tablet {
+      margin-right: 0;
+      font-size: 14px;
+    }
   }
 
   &__company-name {
     @include NavigationText;
+    @include on-tablet {
+      font-size: 14px;
+    }
     align-self: end;
   }
 }

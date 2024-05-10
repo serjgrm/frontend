@@ -8,17 +8,30 @@
     align-items: stretch;
     row-gap: 40px;
     margin-top: 40px;
+    @include on-tablet {
+      margin-top: 24px;
+    }
   }
 
   &__title {
     @include OverrideH3;
     text-align: center;
+
+    @include on-tablet {
+      @include OverrideH6;
+    }
   }
 
   &__button {
     margin: 40px auto 0 auto;
     display: block;
     width: 440px;
+
+    @include on-tablet {
+      margin-top: 16px;
+      width: 216px;
+      height: 44px;
+    }
   }
 
   &__list {
