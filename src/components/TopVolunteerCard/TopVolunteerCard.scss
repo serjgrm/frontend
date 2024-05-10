@@ -10,6 +10,11 @@
   padding: var(--volunteer-card-padding);
   position: relative;
 
+  @include on-tablet {
+    width: 200px;
+    height: 162px;
+  }
+
   &__info {
     position: absolute;
     bottom: calc(0px + var(--volunteer-card-padding));
@@ -17,15 +22,28 @@
     width: fit-content;
     height: 78px;
     background-color: rgba(239, 245, 255, 0.7);
+    backdrop-filter: blur(5px);
     border-radius: 8px;
     padding: 8px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    backdrop-filter: blur(5px);
+
+    @include on-tablet {
+      height: 54px
+    }
   }
 
   &__name {
     @include OverrideH6;
+    @include on-tablet {
+      font-size: 14px;
+    }
+  }
+
+  span {
+    @include on-tablet {
+      font-size: 13px;
+    }
   }
 }

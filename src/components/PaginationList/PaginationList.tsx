@@ -91,7 +91,7 @@ export const PaginationList: React.FC<Props> = ({
         callBack={handleBack}
         currentPage={currentPage}
       >
-        <ArrowBack currentPage={currentPage} size={16}/>
+        <ArrowBack currentPage={currentPage} classNames='pagination-list__arrow'/>
       </PaginationItem>
       {pagesArray.map(page => (
         <PaginationItem
@@ -107,7 +107,11 @@ export const PaginationList: React.FC<Props> = ({
         callBack={handleForward}
         currentPage={currentPage}
       >
-        <ArrowForward currentPage={currentPage} totalPages={totalPages} size={16}/>
+        <ArrowForward 
+          currentPage={currentPage} 
+          totalPages={totalPages}
+          classNames='pagination-list__arrow'
+        />
       </PaginationItem>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './TopVolunteersList.scss';
 import cn from 'classnames';
-import { VolunteerCard } from '../VolunteerCard';
+import { TopVolunteerCard } from '../TopVolunteerCard';
 import volunteers from '../../volunteers-imitation.json';
 
 interface Props {
@@ -30,7 +30,7 @@ export const TopVolunteersList: React.FC<Props> = ({ classNames, limit }) => {
   return (
     <div className={className} >
       {visibleVolunteers.map(volunteer => (
-        <VolunteerCard key={volunteer.id} name={volunteer.name} amount={volunteer.amount} />
+        <TopVolunteerCard key={volunteer.id} name={volunteer.name} amount={volunteer.amount} />
       ))}
     </div>
   );

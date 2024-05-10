@@ -22,7 +22,7 @@ export const NavigationTitle: React.FC<Props> = ({ classNames, children, url }) 
         to={url}
         className="navigation-title__link"
       >
-        <ArrowBack size={32}/>
+        <ArrowBack classNames='navigation-title__arrow'/>
       </Link>
       
       <h3 className='navigation-title__title'>

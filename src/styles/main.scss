@@ -2,7 +2,7 @@
 
 $preset-font: Roboto, sans-serif;
 
-p, span, h1, h2, h3, h4, h5, h6, label, input, a {
+p, span, h1, h2, h3, h4, h5, h6, label, input, a, ::after {
   font-family: $preset-font;
 }
 
@@ -10,15 +10,33 @@ p, span, h1, h2, h3, h4, h5, h6, label, input, a {
   width: 1360px;
   margin: 0 auto;
   position: relative;
+
+  @include on-tablet {
+    width: 688px;
+  }
+
+  @include on-mobile {
+    width: 288px;
+  }
 }
 
 .page {
   &__footer {
     margin-top: 106px;
+
+    @include on-tablet {
+      margin-top: 80px;
+    }
   }
 
-  &__main {
+  &__home-page, &__funds-page {
     margin-top: 40px;
+  }
+
+  &__funds-page {
+    @include on-tablet {
+      margin-top: 16px;
+    }
   }
 }
 

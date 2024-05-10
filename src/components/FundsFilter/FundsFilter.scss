@@ -9,4 +9,8 @@
     white-space: nowrap;
     width: 100%;
   }
+
+  @include on-tablet {
+    gap: 8px;
+  }
 }

@@ -14,16 +14,16 @@ export const UkraineSection: React.FC<Props> = ({ classNames }) => {
 
   return (
     <section className={className}>
-      <p className="ukraine__text ukraine__top">
+      <p className="ukraine__text ukraine__desktop-top ukraine__tablet-top">
         Об’єднуємо усіх волонтерів та бажаючих допомагати
       </p>
-      <p className="ukraine__text ukraine__top">
+      <p className="ukraine__text ukraine__desktop-top ukraine__tablet-bottom">
         Надаємо звітність до закритих зборів
       </p>
-      <p className="ukraine__text ukraine__bottom">
+      <p className="ukraine__text ukraine__desktop-bottom ukraine__tablet-top">
         Швидкі донати з карток будь-яких банків або прямо на вашу банку доступні для всіх зборів.
       </p>
-      <p className="ukraine__text ukraine__bottom">
+      <p className="ukraine__text ukraine__desktop-bottom ukraine__tablet-bottom ukraine__text--rel-pos">
         Кожен волонтер має власний кабінет із усіма даними.
       </p>
       <div className="ukraine__logo-wrapper">

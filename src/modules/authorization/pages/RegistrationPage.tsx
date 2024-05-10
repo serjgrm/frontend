@@ -2,7 +2,7 @@ import {Dispatch, FC, SetStateAction, useState} from "react";
 import './AuthPage.scss';
 import {CurrentPage} from "../types/CurrentPage.ts";
 import {Input} from "@ui/Input";
-import iconClose from "@assets/icon-close-32.svg";
+import iconClose from "@assets/svg/icon-close-32.svg";
 import {Checkbox} from "@ui/Checkbox";
 import {Button} from "@ui/Button";
 

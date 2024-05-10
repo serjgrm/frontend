@@ -6,6 +6,7 @@ import { getFunds } from '@/api/funds';
 import { useAppSelector, useAppDispatch } from '@/store/hooks';
 import { FundType } from '@/types/Fund';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   classNames?: string;
@@ -17,8 +18,11 @@ export const FundsSection: React.FC<Props> = ({ classNames }) => {
     'funds'
   );
   const limit = 6;
-  const lookAllFunds = () => {
-    return 'Look all funds'
+    
+  const navigate = useNavigate();
+
+  const navigateToFunds = () => {
+    navigate('/frontend/funds-page')
   }
 
   const [visibleFunds, setVisibleFunds] = useState<FundType[] | []>([]);
@@ -40,7 +44,7 @@ export const FundsSection: React.FC<Props> = ({ classNames }) => {
       <FundsList classNames='funds__list' visibleFunds={visibleFunds} />
       <Button 
         classNames='funds__button' 
-        callback={lookAllFunds}
+        callback={navigateToFunds}
       >
         Переглянути усі збори
       </Button>

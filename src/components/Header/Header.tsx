@@ -31,6 +31,7 @@ export const Header: FC<Props> = ({ classNames }) => {
       <div className="container">
         <header className={className}>
           <Logo classNames="header__logo"/>
+
           <nav className="header__nav">
             <ul className="header__list">
               <li className="header__item">
@@ -60,6 +61,7 @@ export const Header: FC<Props> = ({ classNames }) => {
               </li>
             </ul>
           </nav>
+          
           <div className="header__actions actions">
             <div className="actions__wrapper">
               <CustomLink

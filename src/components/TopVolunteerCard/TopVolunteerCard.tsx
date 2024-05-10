@@ -1,4 +1,4 @@
-import './VolunteerCard.scss';
+import './TopVolunteerCard.scss';
 import cn from 'classnames';
 
 interface Props {
@@ -7,7 +7,7 @@ interface Props {
   amount: string;
 }
 
-export const VolunteerCard: React.FC<Props> = ({ classNames, name, amount }) => {
+export const TopVolunteerCard: React.FC<Props> = ({ classNames, name, amount }) => {
   const className = cn(
     classNames,
     'volunteer-card'

@@ -6,5 +6,13 @@
     display: flex;
     flex-wrap: wrap;
     gap: 39px;
+
+    @include on-tablet {
+      margin-top: 0px;
+    }
+
+    @include on-tablet {
+      gap: 20px;
+    }
   }
 }

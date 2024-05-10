@@ -2,9 +2,11 @@
 
 .funds-list {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
-  align-items: stretch;
-  row-gap: 40px;
+  gap: 40px 20px;
+
+  @include on-tablet {
+    row-gap: 20px;
+  }
 }
 

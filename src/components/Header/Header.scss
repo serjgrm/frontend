@@ -1,12 +1,16 @@
 @import "@style-utils";
 
 .header {
-  height: $header-height;
+  height: 97px;
   @include page-grid;
 
   align-items: center;
   color: $color_mountain-mist-700;
 
+  @include on-tablet {
+    height: 80px;
+  }
+  
   &__logo {
     grid-column: 1;
   }
@@ -28,6 +32,10 @@
 
   &__link {
     margin-right: 46px;
+
+    @include on-tablet {
+      margin-right: 24px;
+    }
   }
 
   .actions {
@@ -39,6 +47,11 @@
     &__link:last-child {
       margin-left: 46px;
     }
+  }
+
+  @include on-tablet {
+    display: flex;
+    justify-content: space-between;
   }
 }
 

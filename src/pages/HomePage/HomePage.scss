@@ -1,0 +1,17 @@
+@import '@style-utils';
+
+.home-page {
+  &__funds {
+    margin-top: 155px;
+  }
+
+  &__ukraine, &__instruction, &__top-volunteers, &__reports {
+    margin-top: 115px;
+  }
+
+  &__ukraine, &__instruction, &__top-volunteers, &__reports, &__funds {
+    @include on-tablet {
+      margin-top: 85px;
+    }
+  }
+}

@@ -8,6 +8,10 @@
 
   &__hr {
     margin-top: 24px;
+
+    @include on-tablet {
+      margin-top: 16px;
+    }
   }
 
   &__filter {
@@ -16,9 +20,17 @@
 
   &__list {
     margin-top: 24px;
+
+    @include on-tablet {
+      margin-top: 16px;
+    }
   }
 
   &__pagination-list {
     margin: 40px auto 0;
+
+    @include on-tablet {
+      margin-top: 16px;
+    }
   }
 }
