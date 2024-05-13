@@ -1,36 +1,17 @@
 import './Nav.scss';
 import cn from 'classnames';
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { CustomLink } from '../../ui/CustomLink/CustomLink';
-import { useLocation, useNavigate } from 'react-router-dom';
 
 interface Props {
   classNames?: string;
 }
 
 export const Nav: FC<Props> = ({ classNames }) => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
   const className = cn(
     classNames,
     'nav'
   );
-
-  useEffect(() => {
-    const { hash } = location;
-
-    if (hash === '#top-volunteers') {
-      navigate('/frontend');
-
-      setTimeout(() => {
-        const element = document.querySelector(hash);
-        if (element) {
-          element.scrollIntoView();
-        }
-      }, 100);
-    }
-  }, [location, navigate]);
 
   return (
     <>

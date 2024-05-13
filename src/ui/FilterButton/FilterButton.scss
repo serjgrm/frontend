@@ -1,7 +1,6 @@
 @import "@style-utils";
 
 .filter-button {
-  // height: 52px;
   padding: 14px 16px;
   border-radius: 200px;
   border: none;
@@ -10,16 +9,25 @@
   color: $color_azure-radiance-950;
   background-color: #EFF5FF;
   border: 1px solid transparent;
+  white-space: nowrap;
   cursor: pointer;
-
-  &--active {
-    border-color: $color_azure-radiance-800;
-  }
 
   @include on-tablet {
     padding: 11px 16px;
     width: 108px;
+    height: 52px;
     font-size: 13px;
     white-space: wrap;
+  }
+
+  @include on-mobile {
+    flex-shrink: 0;
+    width: 153px;
+    height: 44px;
+    padding: 0 11px;
+  }
+
+  &--active {
+    border-color: $color_azure-radiance-800;
   }
 }

@@ -21,7 +21,7 @@ export const FundsPage: React.FC<Props> = ({ classNames }) => {
     classNames
   )
 
-  const limit = 12;
+  const [limit, setLimit] = useState(12);
   const dispatch = useAppDispatch();
   const [currentPage, setCurrentPage] = useState(1);
   const funds = useAppSelector(data => data.fundsData.funds);
@@ -77,6 +77,26 @@ export const FundsPage: React.FC<Props> = ({ classNames }) => {
       setFundsPages(pages);
     }
   }, [funds, fundsFilter])
+
+  useEffect(() => {
+    const handleResize = () => {
+      const windowWidth = window.innerWidth;
+      
+      if (windowWidth <= 688) {
+        setLimit(6);
+      } else {
+        setLimit(12);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   
   return (
     <div className={className}>

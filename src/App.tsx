@@ -9,12 +9,14 @@ import { AuthPage } from '@modules/authorization/pages/AuthPage.tsx';
 import { HomePage } from "@/pages/HomePage";
 import { FundsPage } from '@pages/FundsPage';
 import { NotFoundPage } from '@pages/NotFoundPage';
-import { useAppSelector } from './store/hooks';
+import { useAppDispatch, useAppSelector } from './store/hooks';
+import { setModalState } from './store/slices/modalSlice';
 
 function App() {
   // const [token, setToken] = useState<string>(localStorage.getItem('token') || '');
   const [openedAuthModalWin, setOpenedAuthModalWin] = useState<boolean>(false);
   const modalState = useAppSelector(data => data.modalState);
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   
@@ -39,34 +41,41 @@ function App() {
   }, [modalState]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
+  useEffect(() => {
     const { hash } = location;
 
     if (hash === '#top-volunteers') {
       navigate('/frontend');
-
+    
       setTimeout(() => {
         const element = document.querySelector(hash);
         if (element) {
-          element.scrollIntoView();
+          element.scrollIntoView({ block: 'start', behavior: 'smooth' });
+          dispatch(setModalState(false))
         }
-      }, 100);
+      }, 0);
     }
-  }, [location, navigate]);
+  }, [location, navigate, dispatch]);
 
   return (
     <div className='page'>
-        <Header classNames='page__header'/>
-        <main className="page__main main">
-          <div className="container">
-            <Routes>
-              <Route path="frontend/" element={<HomePage classNames='page__home-page'/>} />
-              <Route path="frontend/funds-page" element={<FundsPage classNames='page__funds-page'/>} />
-              <Route path="*" element={<NotFoundPage />} />
-            </Routes>
-            {openedAuthModalWin && <AuthPage closeModal={closeAuthModalWin}/>}
-          </div>
-        </main>
-        <Footer classNames='page__footer'/>
+      <Header classNames='page__header'/>
+
+      <main className="page__main main">
+        <div className="container">
+          <Routes>
+            <Route path="frontend/" element={<HomePage classNames='page__home-page'/>} />
+            <Route path="frontend/funds-page" element={<FundsPage classNames='page__funds-page'/>} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+          {openedAuthModalWin && <AuthPage closeModal={closeAuthModalWin}/>}
+        </div>
+      </main>
+
+      <Footer classNames='page__footer'/>
     </div>
   )
 }

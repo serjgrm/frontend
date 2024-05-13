@@ -5,12 +5,23 @@
   justify-content: space-between;
   gap: 16px;
 
-  &__button {
-    white-space: nowrap;
-    width: 100%;
-  }
-
   @include on-tablet {
     gap: 8px;
+  }
+
+  @include on-mobile {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__button {
+    width: 100%;
+
+    @include on-mobile {
+      width: auto;
+    }
   }
 }

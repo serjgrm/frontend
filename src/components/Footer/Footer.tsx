@@ -50,12 +50,20 @@ export const Footer: React.FC<Props> = ({ classNames }) => {
         <div className="footer__social-links">
           <ul className="footer__list">
             <li className="footer__item">
-              <a href="#Instagram" className="custom-link footer__link">
+              <a 
+                href="https://www.google.com/imgres?q=instagram%20%D0%B2%D1%85%D1%96%D0%B4&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F9%2F95%2FInstagram_logo_2022.svg%2F640px-Instagram_logo_2022.svg.png&imgrefurl=https%3A%2F%2Fuk.wikipedia.org%2Fwiki%2FInstagram&docid=6z1u56LoWhp8KM&tbnid=2JAZ5saTZepjDM&vet=12ahUKEwjYy-mvqIuGAxWYQfEDHb8NB20QM3oECGYQAA..i&w=640&h=640&hcb=2&ved=2ahUKEwjYy-mvqIuGAxWYQfEDHb8NB20QM3oECGYQAA"
+                target='_blank'
+                className="custom-link footer__link"
+              >
                 Instagram
               </a>
             </li>
             <li className="footer__item">
-              <a href="#Facebook" className="custom-link footer__link">
+              <a 
+                href="https://www.google.com/imgres?q=instagram%20%D0%B2%D1%85%D1%96%D0%B4&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F9%2F95%2FInstagram_logo_2022.svg%2F640px-Instagram_logo_2022.svg.png&imgrefurl=https%3A%2F%2Fuk.wikipedia.org%2Fwiki%2FInstagram&docid=6z1u56LoWhp8KM&tbnid=2JAZ5saTZepjDM&vet=12ahUKEwjYy-mvqIuGAxWYQfEDHb8NB20QM3oECGYQAA..i&w=640&h=640&hcb=2&ved=2ahUKEwjYy-mvqIuGAxWYQfEDHb8NB20QM3oECGYQAA" 
+                target='_blank' 
+                className="custom-link footer__link"
+              >
                 Facebook
               </a>
             </li>
