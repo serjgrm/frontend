@@ -1,0 +1,35 @@
+@import '@style-utils';
+
+.nav {
+  @include on-mobile {
+    height: 100%;
+  }
+
+  &__list {
+    display: flex;
+
+    @include on-mobile {
+      flex-direction: column;
+      justify-content: space-around;
+      height: inherit;
+    }
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__link {
+    margin-right: 46px;
+
+    @include on-tablet {
+      margin-right: 24px;
+    }
+
+    @include on-mobile {
+      text-align: center;
+      margin-right: 0;
+    }
+  }
+}

@@ -8,6 +8,10 @@
   @include on-tablet {
     padding: 24px;
   }
+
+  @include on-mobile {
+    padding: 16px;
+  }
  
   &__title {
     @include OverrideH3;

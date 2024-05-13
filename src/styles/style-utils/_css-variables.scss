@@ -1,8 +1,14 @@
 :root {
   --volunteer-card-padding: 24px;
 
+  --header-height: 97px;;
   @include on-tablet {
     --volunteer-card-padding: 8px;
+    --header-height: 80px;
+  }
+
+  @include on-mobile {
+    --header-height: 76px;
   }
 }
 

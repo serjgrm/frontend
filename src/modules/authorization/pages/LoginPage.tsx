@@ -6,7 +6,7 @@ import {Input} from "@ui/Input";
 import {CustomLink} from "@ui/CustomLink";
 import {Button} from "@ui/Button";
 
-import iconClose from '@assets/icon-close-32.svg'
+import iconClose from '@assets/svg/icon-close-32.svg'
 import {passwordValidate, PasswordValidateFlags} from "@utils/passwordValidate.ts";
 import {InputStatus} from "@ui/Input/types/InputStatus.ts";
 

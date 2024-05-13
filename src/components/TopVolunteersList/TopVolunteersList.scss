@@ -9,10 +9,11 @@
 
     @include on-tablet {
       margin-top: 0px;
+      gap: 20px;
     }
 
-    @include on-tablet {
-      gap: 20px;
+    @include on-mobile {
+      width: 100%;
     }
   }
 }

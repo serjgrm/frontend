@@ -1,57 +1,53 @@
 @import "@style-utils";
 
 .header {
-  height: 97px;
   @include page-grid;
-
+  height: var(--header-height);
   align-items: center;
   color: $color_mountain-mist-700;
 
   @include on-tablet {
-    height: 80px;
+    display: flex;
+    justify-content: space-between;
   }
-  
+
+  &__links {
+    grid-column: 3 / 13;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 0 0 8px 8px;
+    @include transition;
+
+    @include on-mobile {
+      top: var(--header-height);
+      width: $mobile-min-width;
+      position: absolute;
+      height: $mobile-links-height;
+      justify-content: initial;
+      display: grid;
+      grid-template-rows: 3fr 2fr;
+      transform: translateY(calc((-1 * var(--header-height)) - $mobile-links-height));
+      z-index: 10;
+    }
+
+    &--active {
+      transform: translateY(0); 
+    }
+  }
+
   &__logo {
     grid-column: 1;
   }
 
-  &__nav {
-    grid-column: 3 / 6;
-    white-space: nowrap;
-  }
+  &__burger {
+    position: absolute;
+    top: -100%;
 
-  &__actions {
-    grid-column: 12;
-    white-space: nowrap;
-    grid-column-end: span 2;
-  }
-
-  &__list {
-    display: flex; 
-  }
-
-  &__link {
-    margin-right: 46px;
-
-    @include on-tablet {
-      margin-right: 24px;
+    @include on-mobile {
+      position: static;
     }
-  }
-
-  .actions {
-    &__wrapper {
-      display: flex;
-      justify-content: end;
-    }
-
-    &__link:last-child {
-      margin-left: 46px;
-    }
-  }
-
-  @include on-tablet {
-    display: flex;
-    justify-content: space-between;
   }
 }
 

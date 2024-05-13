@@ -7,6 +7,10 @@
     height: 203px;
   }
 
+  @include on-mobile {
+    height: fit-content;
+  }
+
   &__title {
     @include OverrideH3;
     text-align: center;
@@ -23,6 +27,11 @@
     align-items: center;
     justify-content: center;
     column-gap: 20px;
+
+    @include on-mobile {
+      flex-direction: column;
+      row-gap: 16px;
+    }
   }
 
   &__hr {
@@ -33,6 +42,12 @@
 
     @include on-tablet {
       width: 82px;
+    }
+
+    @include on-mobile {
+      margin-top: 70px;
+      width: 1px;
+      height: 82px;
     }
   }
 
@@ -67,11 +82,22 @@
         font-size: 16px;
         transform: translateY(80px);
       }
+
+      @include on-mobile {
+        width: 146px;
+      }
     }
   }
 
   .one::after {
-    content: "Настисніть “Організувати збір”";   
+    content: "Настисніть “Організувати збір”"; 
+    @include on-tablet {
+      width: 120px;
+    }
+
+    @include on-mobile {
+      width: 146px;
+    }
   }
 
   .two::after {
@@ -83,6 +109,9 @@
   }
 
   .four::after {
-    content: "Збір створено";   
+    content: "Збір створено";  
+    @include on-tablet {
+      width: 120px;
+    }  
   }
 }

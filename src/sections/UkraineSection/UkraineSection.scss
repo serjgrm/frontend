@@ -2,7 +2,7 @@
 
 .ukraine {
   height: 848px;
-  background-image: url('../../assets/images/ukraine.jpeg');
+  background-image: url('../../assets/images/ukraine.webp');
   background-size: 100% 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -13,9 +13,11 @@
 
   @include on-tablet {
     height: 458px;
-    row-gap: 104px;
-    padding-block: 50px;
-    column-gap: 0;
+    display: block;
+  }
+
+  @include on-mobile {
+    height: 248px;
   }
   
   &__text {
@@ -30,12 +32,61 @@
 
     @include on-tablet {
       font-size: 18px;
+      position: absolute;
+
+      &--one {
+        width: 393px;
+        top: 55px;
+        left: 0;
+
+        @include on-mobile {
+          width: 212px;
+          top: 0;
+          left: 0;
+        }
+      }
+
+      &--two {
+        width: 212px;
+        top: 127px;
+        right: 0;
+
+        @include on-mobile {
+          width: 152px;
+          top: 45px;
+          right: 0;
+        }
+      }
+
+      &--three {
+        width: 393px;
+        top: 270px;
+        left: 0;
+
+        @include on-mobile {
+          width: 212px;
+          top: 140px;
+          left: 0;
+        }
+      }
+
+      &--four {
+        width: 334px;
+        bottom: 40px;
+        right: 0;
+
+        @include on-mobile {
+          width: 152px;
+          right: 0px;
+          bottom: 0px;
+        }
+      }
     }
 
-    &--rel-pos {
-      @include on-tablet {
-        top: 20px;
-      }
+    @include on-mobile {
+      font-size: 14px;
+      font-weight: 400;
+      padding: 0;
     }
   }
 
@@ -45,22 +96,6 @@
 
   &__desktop-bottom {
     align-self: flex-start;
-  }
-
-  &__tablet-top {
-    @include on-tablet {
-      align-self: flex-start;
-      width: 393px;
-    }
-  }
-
-  &__tablet-bottom {
-    @include on-tablet {
-      align-self: flex-end;
-      width: 334px;
-      position: relative;
-      left: -40px;
-    }
   }
 
   &__logo-wrapper {
@@ -80,12 +115,23 @@
       width: 72px;
       height: 72px;
     }
+
+    @include on-mobile {
+      width: 40px;
+      height: 40px;
+      top: 45%;
+    }
   }
 
   &__logo {
     @include on-tablet {
       width: 42px;
       height: 32px;
+    }
+
+    @include on-mobile {
+      width: 16px;
+      height: 12px;
     }
   }
 }

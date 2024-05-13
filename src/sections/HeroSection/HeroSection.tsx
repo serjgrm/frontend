@@ -26,7 +26,7 @@ export const HeroSection: React.FC<Props> = ({ classNames }) => {
         classNames='hero__button'
         isPrimary={true}
       >
-        Допомогти
+        ДОПОМОГТИ
       </Button>
     </section>
   );

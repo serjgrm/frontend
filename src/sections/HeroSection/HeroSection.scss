@@ -6,7 +6,7 @@
   height: 625px;
   border-radius: 24px;
   background-size: cover;
-  // background-position: center top -150px; 
+  background-position: center top -150px; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -16,6 +16,10 @@
     padding-inline: 0;
     background-position: center;
     height: 412px;
+  }
+
+  @include on-mobile {
+    padding: 16px;
   }
 
   &::before {
@@ -42,10 +46,19 @@
     @include on-tablet {
       font-size: 49px;
     }
+
+    @include on-mobile {
+      font-size: 28px;
+    }
   }
 
   &__button {
     width: 440px;
-    z-index: 2; 
+    z-index: 2;
+
+    @include on-mobile {
+      font-size: 16px;
+      width: 100%;
+    }
   }
 }

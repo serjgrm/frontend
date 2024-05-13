@@ -37,12 +37,12 @@ export const Footer: React.FC<Props> = ({ classNames }) => {
               </CustomLink>
             </li>
             <li className="footer__item">
-              <CustomLink
-                classNames="footer__link"
-                to={"frontend/ТОП-волонтерів"}
+              <a
+                className="footer__link"
+                href="#top-volunteers"
               >
-                ТОП волонтерів
-              </CustomLink>
+              ТОП волонтерів
+            </a>
             </li>
           </ul>
         </nav>

@@ -1,17 +1,22 @@
 import './styles/main.scss';
 
-import { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Header } from '@components/Header';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Route, Routes } from "react-router-dom";
+import { Header } from '@/components/Header';
 import { Footer } from '@components/Footer';
 import { AuthPage } from '@modules/authorization/pages/AuthPage.tsx';
 import { HomePage } from "@/pages/HomePage";
 import { FundsPage } from '@pages/FundsPage';
 import { NotFoundPage } from '@pages/NotFoundPage';
+import { useAppSelector } from './store/hooks';
 
 function App() {
   // const [token, setToken] = useState<string>(localStorage.getItem('token') || '');
   const [openedAuthModalWin, setOpenedAuthModalWin] = useState<boolean>(false);
+  const modalState = useAppSelector(data => data.modalState);
+  const navigate = useNavigate();
+  const location = useLocation();
   
   // function openAuthModalWin() {
   //   setOpenedAuthModalWin(true)
@@ -21,9 +26,35 @@ function App() {
     setOpenedAuthModalWin(false)
   }
   
+  useEffect(() => {
+    const htmlElement = document.querySelector('html');
+
+    if (modalState && htmlElement) {
+      htmlElement.style.overflow = 'hidden';
+      htmlElement.style.backgroundColor = 'rgba(219, 233, 254, 0.8)';
+    } else if (htmlElement) {
+      htmlElement.style.overflow = '';
+      htmlElement.style.backgroundColor = '';
+    }
+  }, [modalState]);
+
+  useEffect(() => {
+    const { hash } = location;
+
+    if (hash === '#top-volunteers') {
+      navigate('/frontend');
+
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView();
+        }
+      }, 100);
+    }
+  }, [location, navigate]);
+
   return (
     <div className='page'>
-      <Router>
         <Header classNames='page__header'/>
         <main className="page__main main">
           <div className="container">
@@ -36,7 +67,6 @@ function App() {
           </div>
         </main>
         <Footer classNames='page__footer'/>
-      </Router>
     </div>
   )
 }

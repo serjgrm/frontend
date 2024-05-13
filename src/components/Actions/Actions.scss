@@ -1,0 +1,34 @@
+@import '@style-utils';
+
+.actions {
+  @include on-mobile {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: end;
+
+    @include on-mobile {
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      height: 100%;
+    }
+  }
+
+  &__link:last-child {
+    margin-left: 46px;
+
+    @include on-mobile {
+      margin-left: 0;
+    }
+  }
+
+  &__link {
+    @include on-mobile {
+      text-align: center;
+    }
+  }
+}

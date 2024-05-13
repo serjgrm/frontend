@@ -7,6 +7,10 @@
   justify-content: center;
   align-items: center;
 
+  @include on-tablet {
+    padding-block: 130px;
+  }
+
   &__title {
     @include OverrideH2;
   }
@@ -15,10 +19,20 @@
     @include OverrideH6;
     text-align: center;
     margin-top: 40px;
+
+    @include on-tablet {
+      width: 452px;
+      margin-top: 16px;
+    }
   }
 
   &__button {
     margin-top: 32px;
     width: 400px;
+
+    @include on-tablet {
+      width: 275px;
+      font-size: 16px;
+    }
   }
 }

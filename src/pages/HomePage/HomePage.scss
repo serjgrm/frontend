@@ -3,10 +3,32 @@
 .home-page {
   &__funds {
     margin-top: 155px;
+
+    @include on-mobile {
+      margin-top: 56px;
+    }
+  }
+
+  &__reports, &__ukraine {
+    @include on-mobile {
+      margin-top: 80px;
+    }
+  }
+
+  &__instruction {
+    @include on-mobile {
+      margin-top: 101px;
+    }
+  }
+
+  &__top-volunteers {
+    @include on-mobile {
+      margin-top: 112px;
+    }
   }
 
   &__ukraine, &__instruction, &__top-volunteers, &__reports {
-    margin-top: 115px;
+    margin-top: 115px;    
   }
 
   &__ukraine, &__instruction, &__top-volunteers, &__reports, &__funds {

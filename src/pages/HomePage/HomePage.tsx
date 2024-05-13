@@ -1,12 +1,14 @@
 import './HomePage.scss';
 import cn from 'classnames';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { HeroSection } from '@/sections/HeroSection/HeroSection';
 import { FundsSection } from '@/sections/FundsSection';
 import { ReportSection } from '@/sections/ReportSection';
 import { UkraineSection } from '@/sections/UkraineSection';
 import { InstructionSection } from '@/sections/InstructionSection';
 import { TopVolunteersSection } from '@/sections/TopVolunteersSection';
+import { useAppDispatch } from '@/store/hooks';
+import { setModalState } from '../../store/slices/modalSlice'
 
 interface Props {
   classNames?: string,
@@ -17,6 +19,12 @@ export const HomePage: FC<Props> = ( { classNames }) => {
     'home-page',
     classNames,
   )
+
+  const dispatch = useAppDispatch();
+  
+  useEffect(() => {
+    dispatch(setModalState(false))
+  }, [])
 
   return (
     <div className={className}>

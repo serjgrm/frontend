@@ -7,18 +7,19 @@ p, span, h1, h2, h3, h4, h5, h6, label, input, a, ::after {
 }
 
 .container {
-  width: 1360px;
+  width: $tablet-max-width;
   margin: 0 auto;
   position: relative;
 
   @include on-tablet {
-    width: 688px;
+    width: 688px
   }
 
   @include on-mobile {
-    width: 288px;
+    width: $mobile-min-width;
   }
 }
+
 
 .page {
   &__footer {
@@ -33,6 +34,12 @@ p, span, h1, h2, h3, h4, h5, h6, label, input, a, ::after {
     margin-top: 40px;
   }
 
+  &__home-page {
+    @include on-mobile {
+      margin-top: 16px;
+    }
+  }
+  
   &__funds-page {
     @include on-tablet {
       margin-top: 16px;
