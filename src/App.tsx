@@ -14,6 +14,7 @@ import { setModalState } from './store/slices/modalSlice';
 
 function App() {
   // const [token, setToken] = useState<string>(localStorage.getItem('token') || '');
+
   const [openedAuthModalWin, setOpenedAuthModalWin] = useState<boolean>(false);
   const modalState = useAppSelector(data => data.modalState);
   const dispatch = useAppDispatch();
