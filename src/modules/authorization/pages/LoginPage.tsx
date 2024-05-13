@@ -1,4 +1,4 @@
-import {Dispatch, FC, SetStateAction, useEffect, useState} from 'react';
+import {Dispatch, FC, SetStateAction, useState} from 'react';
 import './AuthPage.scss';
 import {CurrentPage} from "../types/CurrentPage";
 
@@ -9,6 +9,7 @@ import {Button} from "@ui/Button";
 import iconClose from '@assets/svg/icon-close-32.svg'
 import {passwordValidate, PasswordValidateFlags} from "@utils/passwordValidate.ts";
 import {InputStatus} from "@ui/Input/types/InputStatus.ts";
+import {emailValidate} from "@utils/emailValidate.ts";
 
 interface Props {
   changePage: Dispatch<SetStateAction<CurrentPage>>
@@ -24,22 +25,38 @@ const LoginPage: FC<Props> = ({ changePage, closeModal }) => {
     hasLetterUpperCase: false,
     hasSpecSymbol: false,
     dontHasSpaces: true,
-  })
-  
-  useEffect(() => {
-    setPasswordFlags(passwordValidate(password));
-  }, [password])
+  });
+  const [passwordStatus, setPasswordStatus] = useState<InputStatus | undefined>(undefined);
+  const [emailStatus, setEmailStatus] = useState<InputStatus | undefined>(undefined)
   
   const goToRegistration = () => {
     changePage(CurrentPage.REGISTRATION_PAGE)
   }
   
-  const passwordIsValid
-    = passwordFlags.hasLetterUpperCase
-    && passwordFlags.hasNumber
-    && passwordFlags.hasSpecSymbol
-    && passwordFlags.minLength
-    && passwordFlags.dontHasSpaces;
+  const login = () => {
+    setPasswordFlags(passwordValidate(password));
+    
+    const passwordIsValid
+      = passwordFlags.hasLetterUpperCase
+      && passwordFlags.hasNumber
+      && passwordFlags.hasSpecSymbol
+      && passwordFlags.minLength
+      && passwordFlags.dontHasSpaces;
+    
+    if (!passwordIsValid && passwordStatus !== InputStatus.ERROR) {
+      setPasswordStatus(InputStatus.ERROR);
+      setTimeout(() => setPasswordStatus(undefined), 3000)
+    }
+    
+    const statusOfEmail = emailValidate(email) ? InputStatus.SUCCESS : InputStatus.ERROR;
+    
+    setEmailStatus(statusOfEmail);
+    
+    if (statusOfEmail === InputStatus.ERROR) {
+      console.log('aaaa')
+      setTimeout(() => setEmailStatus(undefined), 3000)
+    }
+  }
   
   return (
     <section className="login">
@@ -63,6 +80,8 @@ const LoginPage: FC<Props> = ({ changePage, closeModal }) => {
         name={'email'}
         value={email}
         setValue={setEmail}
+        classNames="login__input"
+        status={emailStatus}
       >
         example@gmail.com
       </Input>
@@ -74,7 +93,8 @@ const LoginPage: FC<Props> = ({ changePage, closeModal }) => {
         name={'password'}
         value={password}
         setValue={setPassword}
-        status={passwordIsValid ? InputStatus.SUCCESS : undefined}
+        status={passwordStatus}
+        classNames="login__input"
       >
         Пароль
       </Input>
@@ -86,11 +106,18 @@ const LoginPage: FC<Props> = ({ changePage, closeModal }) => {
         Забули пароль?
       </CustomLink>
       
-      <Button callback={() => alert('Це типу входимо в аккаунт')} isPrimary={true}>
+      <Button
+        callback={login}
+        isPrimary={true}
+        classNames="login__button"
+      >
         УВІЙТИ
       </Button>
       
-      <Button callback={goToRegistration}>
+      <Button
+        callback={goToRegistration}
+        classNames="login__button"
+      >
         Не маєш аккаунт?
       </Button>
     </section>

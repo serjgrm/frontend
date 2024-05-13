@@ -87,11 +87,18 @@ const RegistrationPage: FC<Props> = ({ changePage, closeModal }) => {
         legend="Я волонтер"
       />
       
-      <Button isPrimary={true} callback={() => {}}>
+      <Button
+        isPrimary={true}
+        callback={() => {}}
+        classNames="login__button"
+      >
         Зареєструватись
       </Button>
       
-      <Button callback={goToLogin}>
+      <Button
+        callback={goToLogin}
+        classNames="login__button"
+      >
         Маєш аккаунт?
       </Button>
       

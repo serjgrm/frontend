@@ -13,6 +13,7 @@ import { useAppSelector } from './store/hooks';
 
 function App() {
   // const [token, setToken] = useState<string>(localStorage.getItem('token') || '');
+
   const [openedAuthModalWin, setOpenedAuthModalWin] = useState<boolean>(false);
   const modalState = useAppSelector(data => data.modalState);
   const navigate = useNavigate();
