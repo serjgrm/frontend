@@ -6,15 +6,15 @@ import { Nav } from '../Nav';
 import { Actions } from '../Actions';
 import { Burger } from '@/ui/Burger';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { setModalState } from '@/store/slices/modalSlice';
+import { setMobileModalState } from '@/store/slices/mobileModalSlice';
 
 interface Props {
   classNames?: string;
 }
 
-export const Header: FC<Props> = ({ classNames }) => {
+export const Header: FC<Props> = ({ classNames, }) => {
   const dispatch = useAppDispatch();
-  const modalState = useAppSelector(data => data.modalState);
+  const modalState = useAppSelector(data => data.mobileModal);
 
   const className = cn(
     classNames,
@@ -23,9 +23,9 @@ export const Header: FC<Props> = ({ classNames }) => {
 
   const handleHeaderModal = () => {
     if (!modalState) {
-      dispatch(setModalState(true))
+      dispatch(setMobileModalState(true))
     } else {
-      dispatch(setModalState(false))
+      dispatch(setMobileModalState(false))
     }
   }
 

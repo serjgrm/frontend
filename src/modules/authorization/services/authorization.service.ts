@@ -1,6 +1,6 @@
 import { RegistrationRequest, RegistrationResponse } from "../dto/register.dto.ts";
 import { LoginRequest, LoginResponse } from "../dto/login.dto.ts";
-import {URL_TO_BACKEND} from "@config";
+import { URL_TO_BACKEND } from "@config";
 
 const HEADERS = {
   'Accept': 'application/json',
@@ -8,11 +8,12 @@ const HEADERS = {
 }
 
 export class AuthorizationService {
-  async register(userDto: RegistrationRequest): Promise<RegistrationResponse> {
+  static async register(userDto: RegistrationRequest): Promise<RegistrationResponse> {
     const url = URL_TO_BACKEND + '/auth/registration';
     const options = {
       method: 'POST',
       headers: HEADERS,
+      credentials: 'include' as RequestCredentials,
       body: JSON.stringify(userDto),
     }
     

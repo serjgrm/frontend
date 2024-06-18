@@ -1,6 +1,6 @@
 @import "@style-utils";
 
-.auth-page-modal {
+.auth-modal {
   position: fixed;
   display: flex;
   justify-content: center;
@@ -40,4 +40,8 @@
   &__button {
     margin-top: 16px;
   }
+}
+
+.icon {
+  cursor: pointer;
 }

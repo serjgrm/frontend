@@ -1,5 +1,5 @@
 import {Dispatch, FC, SetStateAction, useState} from 'react';
-import './AuthPage.scss';
+import './AuthModal.scss';
 import {CurrentPage} from "../types/CurrentPage";
 
 import {Input} from "@ui/Input";
@@ -16,7 +16,7 @@ interface Props {
   closeModal: () => void;
 }
 
-const LoginPage: FC<Props> = ({ changePage, closeModal }) => {
+const LoginModalContent: FC<Props> = ({ changePage, closeModal }) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [passwordFlags, setPasswordFlags] = useState<PasswordValidateFlags>({
@@ -124,4 +124,4 @@ const LoginPage: FC<Props> = ({ changePage, closeModal }) => {
   );
 };
 
-export default LoginPage;
+export default LoginModalContent;

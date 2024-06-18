@@ -3,7 +3,6 @@ export interface RegistrationRequest {
   password: string;
   repeatPassword: string;
   fullName: string;
-  isVolunteer: boolean;
 }
 
 export interface RegistrationResponse {

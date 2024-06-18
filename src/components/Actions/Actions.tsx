@@ -2,6 +2,8 @@ import './Actions.scss';
 import cn from 'classnames';
 import { FC } from 'react';
 import { CustomLink } from '../../ui/CustomLink/CustomLink';
+import { useAppDispatch } from '@/store/hooks';
+import { setAuthModalState } from '@/store/slices/authModalSlice';
 
 interface Props {
   classNames?: string;
@@ -12,6 +14,12 @@ export const Actions: FC<Props> = ({ classNames }) => {
     classNames,
     'actions'
   );
+
+  const dispatch = useAppDispatch();
+
+  const openAuthModal = () => {
+    dispatch(setAuthModalState(true))
+  }
 
   return (
     <div className={className}>
@@ -24,8 +32,9 @@ export const Actions: FC<Props> = ({ classNames }) => {
           Організувати збір
         </CustomLink>
         <CustomLink
-          classNames="actions__link"
-          to={"#Увійти"}
+          className="actions__link"
+          to={"frontend"}
+          onClick={openAuthModal}
         >
           Увійти
         </CustomLink>

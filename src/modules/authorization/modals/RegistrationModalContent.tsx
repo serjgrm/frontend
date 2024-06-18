@@ -1,17 +1,18 @@
 import {Dispatch, FC, SetStateAction, useState} from "react";
-import './AuthPage.scss';
+import './AuthModal.scss';
 import {CurrentPage} from "../types/CurrentPage.ts";
 import {Input} from "@ui/Input";
 import iconClose from "@assets/svg/icon-close-32.svg";
 import {Checkbox} from "@ui/Checkbox";
 import {Button} from "@ui/Button";
+import { AuthorizationService } from "../services/authorization.service.ts";
 
 interface Props {
   changePage: Dispatch<SetStateAction<CurrentPage>>;
   closeModal: () => void;
 }
 
-const RegistrationPage: FC<Props> = ({ changePage, closeModal }) => {
+const RegistrationModalContent: FC<Props> = ({ changePage, closeModal }) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [nameOfOrganisation, setNameOfOrganisation] = useState<string>('');
@@ -22,6 +23,22 @@ const RegistrationPage: FC<Props> = ({ changePage, closeModal }) => {
     changePage(CurrentPage.LOGIN_PAGE);
   }
   
+  const submitRegistration = () => {
+    const requestRegisterBody = {
+      email,
+      password,
+      repeatPassword,
+      fullName: nameOfOrganisation
+    }
+
+    const request = async () => {
+      const response = await AuthorizationService.register(requestRegisterBody);
+      console.log(response);
+    }
+    
+    request()
+  }
+
   return (
     <section className="registration">
       <header className="registration__header">
@@ -89,7 +106,7 @@ const RegistrationPage: FC<Props> = ({ changePage, closeModal }) => {
       
       <Button
         isPrimary={true}
-        callback={() => {}}
+        callback={submitRegistration}
         classNames="login__button"
       >
         Зареєструватись
@@ -106,4 +123,4 @@ const RegistrationPage: FC<Props> = ({ changePage, closeModal }) => {
   );
 };
 
-export default RegistrationPage;
+export default RegistrationModalContent;

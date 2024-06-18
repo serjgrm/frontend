@@ -9,7 +9,7 @@ import { getFunds } from '@/api/funds';
 import { FundType } from '@/types/Fund';
 import { FilterFunds } from '@/types/FilterFunds';
 import { NavigationTitle } from '@/components/NavigationTitle';
-import { setModalState } from '../../store/slices/modalSlice'
+import { setMobileModalState } from '../../store/slices/mobileModalSlice'
 
 interface Props {
   classNames?: string,
@@ -55,7 +55,7 @@ export const FundsPage: React.FC<Props> = ({ classNames }) => {
   }, [fundsFilter, funds]);
 
   useEffect(() => {
-    dispatch(setModalState(false))
+    dispatch(setMobileModalState(false))
     if (filteredFunds !== undefined) {
       const totalPages = Math.ceil((filteredFunds.length) / limit);
       setTotalPages(totalPages);

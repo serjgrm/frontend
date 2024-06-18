@@ -1,13 +1,15 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import { fundsFilterReducer } from './slices/fundsFilterSlice';
 import { fundsReducer } from './slices/fundsSlice';
-import { modalReducer } from './slices/modalSlice';
+import { mobileModalReducer } from './slices/mobileModalSlice';
+import { authModalReducer } from './slices/authModalSlice';
 
 export const store = configureStore({
   reducer: {
     fundsFilter: fundsFilterReducer,
     fundsData: fundsReducer,
-    modalState: modalReducer,
+    mobileModal: mobileModalReducer,
+    authModal: authModalReducer,
   },
 });
 

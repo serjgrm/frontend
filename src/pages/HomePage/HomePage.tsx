@@ -8,7 +8,7 @@ import { UkraineSection } from '@/sections/UkraineSection';
 import { InstructionSection } from '@/sections/InstructionSection';
 import { TopVolunteersSection } from '@/sections/TopVolunteersSection';
 import { useAppDispatch } from '@/store/hooks';
-import { setModalState } from '../../store/slices/modalSlice'
+import { setMobileModalState } from '../../store/slices/mobileModalSlice'
 
 interface Props {
   classNames?: string,
@@ -23,7 +23,7 @@ export const HomePage: FC<Props> = ( { classNames }) => {
   const dispatch = useAppDispatch();
   
   useEffect(() => {
-    dispatch(setModalState(false))
+    dispatch(setMobileModalState(false))
   }, [])
 
   return (
