@@ -40,6 +40,22 @@
   &__button {
     margin-top: 16px;
   }
+
+  &__password-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__password-toggle-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .icon {

@@ -1,5 +1,5 @@
-import { RegistrationRequest, RegistrationResponse } from "../dto/register.dto.ts";
-import { LoginRequest, LoginResponse } from "../dto/login.dto.ts";
+import { LoginRequest, LoginResponse } from "@/types/dto/login.dto";
+import { RegistrationRequest, RegistrationResponse } from "@/types/dto/register.dto";
 import { URL_TO_BACKEND } from "@config";
 
 const HEADERS = {
@@ -31,7 +31,7 @@ export class AuthorizationService {
     return fetch(url, options).then(res => res.json());
   }
   
-  async login(userDto: LoginRequest): Promise<LoginResponse> {
+  static async login(userDto: LoginRequest): Promise<LoginResponse> {
     const url = URL_TO_BACKEND + '/auth/login';
     const options = {
       method: 'POST',

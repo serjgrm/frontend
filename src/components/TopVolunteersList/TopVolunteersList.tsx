@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './TopVolunteersList.scss';
 import cn from 'classnames';
 import { TopVolunteerCard } from '../TopVolunteerCard';
-import volunteers from '../../volunteers-imitation.json';
+import volunteers from '../../data-imitation/volunteers.json'
 
 interface Props {
   classNames?: string;

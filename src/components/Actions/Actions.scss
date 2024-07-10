@@ -9,6 +9,7 @@
   &__wrapper {
     display: flex;
     justify-content: end;
+    align-items: center;
 
     @include on-mobile {
       flex-direction: column;
@@ -18,17 +19,25 @@
     }
   }
 
+  &__link {
+    background-color: transparent;
+    border: none;
+
+    @include on-mobile {
+      text-align: center;
+    }
+
+    &--primary {
+      border-bottom: 1px solid $color_azure-radiance-700;
+      padding: 0;
+    }
+  }
+
   &__link:last-child {
     margin-left: 46px;
 
     @include on-mobile {
       margin-left: 0;
-    }
-  }
-
-  &__link {
-    @include on-mobile {
-      text-align: center;
     }
   }
 }

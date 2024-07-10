@@ -1,15 +1,20 @@
-import {Dispatch, FC, SetStateAction, useState} from 'react';
+import { Dispatch, FC, SetStateAction, useState } from 'react';
 import './AuthModal.scss';
-import {CurrentPage} from "../types/CurrentPage";
+import { CurrentPage } from '@/types/CurrentPage';
+import { Input } from "@ui/Input";
+import { CustomLink } from "@ui/CustomLink";
+import { Button } from "@ui/Button";
+import showIcon from '@assets/icons/show.png'; 
+import hideIcon from '@assets/icons/hide.png'; 
+import iconClose from '@assets/svg/cross.svg'
+import { passwordValidate, PasswordValidateFlags } from "@utils/passwordValidate.ts";
+import { InputStatus } from "@ui/Input/types/InputStatus.ts";
+import { emailValidate } from "@utils/emailValidate.ts";
+import { AuthorizationService } from '../services/authorization.service';
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '@/store/hooks';
+import { setAuthModalState } from '@/store/slices/authModalSlice';
 
-import {Input} from "@ui/Input";
-import {CustomLink} from "@ui/CustomLink";
-import {Button} from "@ui/Button";
-
-import iconClose from '@assets/svg/icon-close-32.svg'
-import {passwordValidate, PasswordValidateFlags} from "@utils/passwordValidate.ts";
-import {InputStatus} from "@ui/Input/types/InputStatus.ts";
-import {emailValidate} from "@utils/emailValidate.ts";
 
 interface Props {
   changePage: Dispatch<SetStateAction<CurrentPage>>
@@ -27,8 +32,16 @@ const LoginModalContent: FC<Props> = ({ changePage, closeModal }) => {
     dontHasSpaces: true,
   });
   const [passwordStatus, setPasswordStatus] = useState<InputStatus | undefined>(undefined);
-  const [emailStatus, setEmailStatus] = useState<InputStatus | undefined>(undefined)
+  const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
+  const [emailStatus, setEmailStatus] = useState<InputStatus | undefined>(undefined);
+  const [errorMessage, setErrorMessage] = useState<string>('');
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
   const goToRegistration = () => {
     changePage(CurrentPage.REGISTRATION_PAGE)
   }
@@ -56,6 +69,34 @@ const LoginModalContent: FC<Props> = ({ changePage, closeModal }) => {
       console.log('aaaa')
       setTimeout(() => setEmailStatus(undefined), 3000)
     }
+
+    const requestBody = {
+      email,
+      password
+    }
+
+    const request = async () => {
+      const response = await AuthorizationService.login(requestBody);
+
+      if ('errors' in response) {
+        setErrorMessage('Invalid email format.');
+      } else if ('error' in response) {
+        setErrorMessage('There is no users under such combination of email and password');
+      } else {
+        setErrorMessage('')
+      }
+
+      if ('token' in response) {
+        localStorage.setItem('token', response.token)
+        localStorage.setItem('currentUser', email)
+        navigate('frontend/my-page')
+        dispatch(setAuthModalState(false))
+      }
+
+      console.log(response);
+    }
+    
+    request()
   }
   
   return (
@@ -86,18 +127,32 @@ const LoginModalContent: FC<Props> = ({ changePage, closeModal }) => {
         example@gmail.com
       </Input>
       
-      <Input
-        type={"password"}
-        required={true}
-        labelText={'Пароль'}
-        name={'password'}
-        value={password}
-        setValue={setPassword}
-        status={passwordStatus}
-        classNames="login__input"
-      >
-        Пароль
-      </Input>
+      <div className="login__password-input-wrapper">
+        <Input
+          type={passwordVisible ? "text" : "password"}
+          required={true}
+          labelText={'Пароль'}
+          name={'password'}
+          value={password}
+          setValue={setPassword}
+          status={passwordStatus}
+          classNames="login__input"
+        >
+          Пароль
+        </Input>
+        <img
+          src={passwordVisible ? showIcon : hideIcon}
+          alt={passwordVisible ? "Hide password" : "Show password"}
+          className="login__password-toggle-icon"
+          onClick={togglePasswordVisibility}
+        />
+      </div>
+
+      {errorMessage && (
+        <div className="error-message">
+          {errorMessage}
+        </div>
+      )}
       
       <CustomLink 
         to={'/password-recovery'} 

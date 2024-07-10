@@ -1,5 +1,5 @@
-import {FC, ReactNode} from 'react';
-import {LinkProps, Link} from "react-router-dom";
+import { FC, ReactNode } from 'react';
+import { LinkProps, Link } from "react-router-dom";
 import './CustomLink.scss';
 import cn from "classnames";
 

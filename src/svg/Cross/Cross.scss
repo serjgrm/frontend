@@ -1,0 +1,15 @@
+@import '@style-utils';
+
+.cross {
+  &--primary {
+    path {
+      fill: $color_styles-white;
+    }
+  }
+
+  &--secondary {
+    path {
+      fill: $color_azure-radiance-700;
+    }
+  }
+}

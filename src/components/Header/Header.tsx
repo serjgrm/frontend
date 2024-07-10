@@ -46,7 +46,7 @@ export const Header: FC<Props> = ({ classNames, }) => {
 
           <Burger
             modalState={modalState} 
-            callback={handleHeaderModal} 
+            callback={handleHeaderModal}
             classNames='header__burger'
           />
         </header>

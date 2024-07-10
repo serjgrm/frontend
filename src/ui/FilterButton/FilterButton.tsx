@@ -9,8 +9,8 @@ interface Props {
   isPrimary?: boolean;
   disabled?: boolean;
   classNames?: string;
-  currentFilter: FilterFunds;
-  buttonFilter: FilterFunds; 
+  currentFilter?: FilterFunds;
+  buttonFilter?: FilterFunds; 
 }
 
 export const FilterButton: FC<Props> = ({ 

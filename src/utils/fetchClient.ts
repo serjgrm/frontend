@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const BASE_URL = 'https://jsonplaceholder.typicode.com';
+const BASE_URL = 'http://localhost:8081';
 
 type RequestMethod = 'GET' | 'POST' | 'PATCH' | 'DELETE';
 

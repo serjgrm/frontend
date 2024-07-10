@@ -11,6 +11,8 @@
   transition: all 0.3s;
   border-bottom: solid 1px transparent;
   color: $color_mountain-mist-700;
+  line-height: 150%;
+  cursor: pointer;
 
   &:hover {
     color: $color_mountain-mist-950;

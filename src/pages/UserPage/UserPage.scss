@@ -1,0 +1,16 @@
+@import '@style-utils';
+
+.my-page {
+  &__hr {
+    margin-top: 24px;
+
+    @include on-tablet {
+      margin-top: 16px;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    margin-top: 24px;
+  }
+}

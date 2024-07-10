@@ -1,0 +1,31 @@
+@import '@style-utils';
+
+.user-validation-item {
+  display: flex;
+  justify-content: space-between;
+  background-color: $color_azure-radiance-50;
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 16px;
+
+  &__button {
+    width: 42px;
+    height: 42px;
+  }
+
+  &__actions {
+    width: 88px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__name {
+    @include RobotoRegular;
+    color: $color_mountain-mist-700;
+  }
+
+  &__email {
+    @include OverrideH6;
+    margin-top: 8px;
+  }
+}

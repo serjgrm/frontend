@@ -1,4 +1,3 @@
-import './ArrowBack.scss';
 import cn from "classnames";
 
 interface Props {

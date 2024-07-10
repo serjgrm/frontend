@@ -1,0 +1,50 @@
+[
+  {
+      "id": 1,
+      "email": "admin@example.com",
+      "fullName": "Admin User",
+      "verified": true
+  },
+  {
+      "id": 2,
+      "email": "grammas56@gmail.com",
+      "fullName": "Serhii",
+      "verified": false
+  },
+  {
+      "id": 3,
+      "email": "hagojif944@lapeds.com",
+      "fullName": "Serhii",
+      "verified": false
+  },
+  {
+      "id": 4,
+      "email": "niyim25024@luravell.com",
+      "fullName": "Serhii",
+      "verified": false
+  },
+  {
+      "id": 5,
+      "email": "tisifi6422@nolanzip.com",
+      "fullName": "Serhii",
+      "verified": false
+  },
+  {
+      "id": 6,
+      "email": "ntisifi6422@nolanzip.com",
+      "fullName": "string",
+      "verified": true
+  },
+  {
+      "id": 7,
+      "email": "1@gmail.com",
+      "fullName": "string",
+      "verified": true
+  },
+  {
+      "id": 8,
+      "email": "2@gmail.com",
+      "fullName": "string",
+      "verified": true
+  }
+]

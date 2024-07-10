@@ -1,11 +1,11 @@
-import {Dispatch, FC, SetStateAction, useState} from "react";
+import {  Dispatch, FC, SetStateAction, useState } from "react";
 import './AuthModal.scss';
-import {CurrentPage} from "../types/CurrentPage.ts";
-import {Input} from "@ui/Input";
-import iconClose from "@assets/svg/icon-close-32.svg";
-import {Checkbox} from "@ui/Checkbox";
-import {Button} from "@ui/Button";
+import { Input } from "@ui/Input";
+import iconClose from "@assets/svg/cross.svg";
+import { Checkbox } from "@ui/Checkbox";
+import { Button } from "@ui/Button";
 import { AuthorizationService } from "../services/authorization.service.ts";
+import { CurrentPage } from "@/types/CurrentPage.ts";
 
 interface Props {
   changePage: Dispatch<SetStateAction<CurrentPage>>;

@@ -1,0 +1,23 @@
+@import '@style-utils';
+
+.button-verification {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid $color_azure-radiance-700;
+  cursor: pointer;
+
+  &--primary {
+    background-color: $color_azure-radiance-700;
+    &:hover {
+      background-color: $color_azure-radiance-600;
+    }
+  }
+
+  &--secondary {
+    background-color: $color_azure-radiance-50;
+  } 
+}

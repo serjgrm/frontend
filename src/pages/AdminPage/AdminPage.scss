@@ -1,0 +1,24 @@
+@import '@style-utils';
+
+.admin-page {
+  &__hr {
+    margin-top: 24px;
+
+    @include on-tablet {
+      margin-top: 16px;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  &__pagination-list {
+    margin: 40px auto 0;
+
+    @include on-tablet {
+      margin-top: 16px;
+    }
+  }
+}

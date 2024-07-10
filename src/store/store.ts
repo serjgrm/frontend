@@ -3,6 +3,7 @@ import { fundsFilterReducer } from './slices/fundsFilterSlice';
 import { fundsReducer } from './slices/fundsSlice';
 import { mobileModalReducer } from './slices/mobileModalSlice';
 import { authModalReducer } from './slices/authModalSlice';
+import { usersReducer } from './slices/usersSlice';
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     fundsData: fundsReducer,
     mobileModal: mobileModalReducer,
     authModal: authModalReducer,
+    usersData: usersReducer,
   },
 });
 

@@ -1,4 +1,3 @@
-import './ArrowForward.scss';
 import cn from "classnames";
 
 interface Props {

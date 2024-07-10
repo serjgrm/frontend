@@ -24,7 +24,7 @@ export const HomePage: FC<Props> = ( { classNames }) => {
   
   useEffect(() => {
     dispatch(setMobileModalState(false))
-  }, [])
+  }, [dispatch])
 
   return (
     <div className={className}>
